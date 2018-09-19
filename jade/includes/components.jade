@@ -1,0 +1,31 @@
+
+
+mixin header
+	header.header
+		.container
+			.header-wrap
+				.header-logo-wrap
+					a(href="#/").header-logo.header-logo_01
+						img(src="images/bh-logo.svg" alt="")
+					a(href="#/").header-logo.header-logo_02
+						img(src="images/mzgv-logo.svg" alt="")
+				.header-title Интеллектуальная олимпиада
+				a(href="#/").button.button_orange.header-button Не смогу участвовать
+
+mixin footer
+	footer&attributes(attributes): .container Footer
+
+
+mixin head(title)
+	head
+		meta(charset="utf-8")
+		title= title
+
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
+		meta(name="format-detection" content="telephone=no")
+
+		link(rel="stylesheet" type="text/css" href="css/style.css")
+		link(rel="stylesheet" type="text/css" href="css/media.css")
+		script(type="text/javascript" src="js/libs.js")
+		block
+		script(type="text/javascript" src="js/scripts.js")

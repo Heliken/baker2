@@ -1,0 +1,71 @@
+include ./includes/components.jade
+
+doctype html
+html
+	+head ('Index')
+
+	body
+		+header
+
+		.main
+			.container
+				.main-title
+					img(src="images/title.svg" alt="").main-title-img
+					img(src="images/filler-01.png" alt="").filler.filler-01
+					img(src="images/filler-02.png" alt="").filler.filler-02
+					img(src="images/filler-03.png" alt="").filler.filler-03
+					img(src="images/filler-04.png" alt="").filler.filler-04
+					img(src="images/filler-05.png" alt="").filler.filler-05
+					
+				.main-select.select-wrap
+					select(name="select city")
+						option
+						option Москва
+						option Санкт-Петербург
+				.main-games
+					.main-games-month Ноябрь
+					.main-games-wrap
+						.main-games-unit
+							.main-games-unit-date 36
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
+						.main-games-unit.main-games-unit_disabled
+							.main-games-unit-date 15
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
+						.main-games-unit.main-games-unit_disabled
+							.main-games-unit-date 16
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
+				.main-info
+						.main-info-unit
+							.main-info-unit-title Как подготовиться?
+							.main-info-unit-text Никак, вы уже готовы :) из того что надо взять с собой, это хорошее настроение. Всем остальным мы обеспечим вас на игре.
+						.main-info-unit
+							.main-info-unit-title Где это будет происходить?
+							.main-info-unit-text В Вашем городе или ближайшем к вам городе. Игра проходит в ресторане, регистрируйтесь и просто приходите в назначенное место и время. А еще мы позвоним вам за день до игры подтвердить ваше участие.
+						.main-info-unit
+							.main-info-unit-title Дресс-код?
+							.main-info-unit-text Да, мероприятие официальное, все будут нарядными.
+						.main-info-unit
+							.main-info-unit-title Что такое «Мозгва»?
+							.main-info-unit-text Это игра, в которой мы задаем вам вопросы на логику, эрудицию и интуицию, а вы на них отвечаете
+						.main-info-unit
+							.main-info-unit-title Какие правила?
+							.main-info-unit-text Все правила мы расскажем прямо перед игрой. Все очень просто, мы задаем вопросы, вы пишете ответ на бланке.
+		.popup
+			.popup-wrap
+				.popup-title Регистрация на игру
+				.popup-close
+				.popup-form
+					input(type="text" placeholder="Ваше имя" required)
+					input#inputMaskPhone(type="phone" placeholder="Телефон" required)
+					input(type="email" placeholder="Электронная почта" required)
+					input(type="submit" value="Дальше").button.button_orange
+

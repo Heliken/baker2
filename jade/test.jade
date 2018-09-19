@@ -1,0 +1,141 @@
+include ./includes/components.jade
+
+doctype html
+html
+	+head ('Test')
+
+	body
+		.test
+			.container
+				.test-header
+					.header-logo-wrap
+						a(href="#/").header-logo.header-logo_01
+							img(src="images/bh-logo_alt.svg" alt="")
+						a(href="#/").header-logo.header-logo_02
+							img(src="images/mzgv-logo.svg" alt="")
+				.test-body-wrap
+					.test-body
+						img(src="images/filler-01.png" alt="").test-filler.test-filler-01
+						img(src="images/filler-03.png").test-filler.test-filler-02
+						img(src="images/filler-07.png").test-filler.test-filler-03
+						img(src="images/filler-05.png").test-filler.test-filler-04
+						img(src="images/filler-06.png").test-filler.test-filler-05
+						.test-info
+							.test-info-unit.test-info-unit_date 16 Октября
+							.test-info-unit.test-info-unit_time 20:00
+							.test-info-text Игра произойдет здесь, по московскому времени. Отправьте нам свои контактные данные, и мы вам напомним о начале игры.
+							.test-info-button.button.register.button_orange Зарегистрироваться
+						.test-content
+							.test-content-progress
+								.test-content-progress-title Вопрос <span class="current">1</span>/6
+								.test-content-progress-wrap
+									.test-content-progress-unit
+									.test-content-progress-unit
+									.test-content-progress-unit
+									.test-content-progress-unit
+									.test-content-progress-unit
+									.test-content-progress-unit
+							.test-content-unit
+								.test-content-unit-question.test-content-unit-question_size1 Название какой страны возникло из слухов о горах серебра на её территории?
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit Бельгия
+										.test-content-unit-bottom-answers-unit Гаити
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct Аргентина
+										.test-content-unit-bottom-answers-unit Республика Кипр
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit
+								.test-content-unit-question.test-content-unit-question_size2 Название какого музыкального жанра, по одной из версий, появилось благодаря английскому эквиваленту выражения «тоска зеленая»?
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit Опера
+										.test-content-unit-bottom-answers-unit Рэп
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct Блюз
+										.test-content-unit-bottom-answers-unit Вальс
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit
+								.test-content-unit-question.test-content-unit-question_size3 На последней странице Книги Рекордов Гиннеса мелким шрифтом указано, что все мировые рекорды принадлежат этому человеку, а в книге просто перечислены те люди, которым удалось максимально к ним приблизиться. О каком актере шутка?
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit Арнольд Шварценеггер
+										.test-content-unit-bottom-answers-unit Саша Барон Коэн
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct Чак Норрис
+										.test-content-unit-bottom-answers-unit Стив Бушеми
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit
+								.test-content-unit-question.test-content-unit-question_size1 Как на сленге шахтеров называют бурильный станок БП-100?
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit Столичная
+										.test-content-unit-bottom-answers-unit Борис Петрович
+										.test-content-unit-bottom-answers-unit Боеприпас
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct Баптист
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit
+								.test-content-unit-question.test-content-unit-question_size4 «Мы восстановили порядок в мире и спасли Олимпийские игры в Сочи». Пост с таким заголовком в 2013 году опубликовала в Facebook известная компания,  поместив на обложку своей группы фото «спасения игр». Санкций за использование олимпийских символов со стороны оргкомитета не последовало. Какой бренд «спас» игры?
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit «Coca-Cola»
+										.test-content-unit-bottom-answers-unit «РЖД»
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct «Zippo»
+										.test-content-unit-bottom-answers-unit «Касперский»
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit.test-content-unit_final
+								.test-content-unit-question.test-content-unit-question_size1 Что Юрий Лоза не возьмет с собой прежде, чем тихо уплыть на маленьком плоту? 
+								.test-content-unit-bottom
+									.test-content-unit-bottom-answers
+										.test-content-unit-bottom-answers-unit.test-content-unit-bottom-answers-unit_correct Слезы
+										.test-content-unit-bottom-answers-unit Мечта
+										.test-content-unit-bottom-answers-unit Грезы
+										.test-content-unit-bottom-answers-unit Сны
+									.test-content-unit-bottom-results
+										.test-content-unit-bottom-results-button Следующий вопрос!
+										.test-content-unit-bottom-results-text 
+											.test-content-unit-bottom-results-text-inner_correct Конечно, Аргентина! Вы абсолютно правы!
+											.test-content-unit-bottom-results-text-inner_wrong Нет. правильный ответ - Аргентина.
+							.test-content-unit.test-content-unit_result
+								.test-content-unit_result-title Вы — молодец! У вас все шансы занять неплохое место на зачетной игре. Мы Вам напомним о ней.
+								.test-content-unit_result-timer
+									.test-content-unit_result-timer-title Старт зачетной игры через:
+									.test-content-unit_result-timer-wrap
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+											.test-content-unit_result-timer-unit-title Д
+											.test-content-unit_result-timer-unit-number 17
+										.test-content-unit_result-timer-unit_divider :
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+											.test-content-unit_result-timer-unit-title Ч
+											.test-content-unit_result-timer-unit-number 03
+										.test-content-unit_result-timer-unit_divider :
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+											.test-content-unit_result-timer-unit-title М
+											.test-content-unit_result-timer-unit-number 45
+		.popup
+			.popup-wrap
+				.popup-title Регистрация на игру
+				.popup-close
+				.popup-form
+					input(type="text" placeholder="Ваше имя" required)
+					input#inputMaskPhone(type="phone" placeholder="Телефон" required)
+					input(type="email" placeholder="Электронная почта" required)
+					input(type="submit" value="Дальше").button.button_orange
+

@@ -1,0 +1,278 @@
+@media (max-width: 1279px) {
+  .container {
+    width: 768px; }
+  .header-wrap {
+    padding: 32px 33px 0 40px; }
+  .header-logo_01 {
+    margin-right: 22px;
+    margin-top: 3px; }
+  .header-title {
+    margin-left: 59px;
+    line-height: 23px;
+    text-align: center;
+    width: 160px; }
+  .filler-01 {
+    top: 93px;
+    width: 69.5px; }
+  .filler-02 {
+    width: 183px;
+    top: 120px;
+    right: 18px; }
+  .filler-03 {
+    left: 39px;
+    top: 120px;
+    width: 163px; }
+  .filler-04 {
+    top: calc(100% - 28px);
+    left: 15px;
+    width: 252px; }
+  .filler-05 {
+    right: 125px;
+    bottom: -53px;
+    width: 128px; }
+  .main-title {
+    margin-bottom: 70px;
+    padding-top: 165px; }
+    .main-title-img {
+      max-width: 487px; }
+  .main-select {
+    margin-bottom: 56px; }
+  .main-info {
+    padding: 0px 84px; }
+    .main-info-unit {
+      width: 100%; }
+      .main-info-unit-title {
+        margin-bottom: 25px; }
+      .main-info-unit:nth-child(1) {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1; }
+      .main-info-unit:nth-child(2) {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2; }
+      .main-info-unit:nth-child(3) {
+        -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+        order: 3; }
+      .main-info-unit:nth-child(4) {
+        -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+        order: 4; }
+      .main-info-unit:nth-child(5) {
+        -webkit-box-ordinal-group: 6;
+        -ms-flex-order: 5;
+        order: 5; }
+  .main-games {
+    margin-bottom: 50px; }
+    .main-games-wrap {
+      padding: 0 54px; }
+    .main-games-month {
+      margin-bottom: 30px; }
+    .main-games-unit {
+      margin-right: 40px; }
+      .main-games-unit:nth-child(2n) {
+        margin-right: 0; }
+  .test {
+    background-image: url(../images/test-bg-tablet.svg); }
+    .test-header {
+      padding: 0px 40px;
+      padding-top: 32px; }
+    .test-filler {
+      display: none; }
+    .test-body {
+      display: block;
+      width: 450px;
+      margin: 0 auto;
+      height: inherit;
+      padding: 0;
+      padding-top: 36px;
+      padding-bottom: 105px; }
+      .test-body-wrap {
+        height: inherit; }
+    .test-content-progress {
+      margin-top: 73px; }
+    .test-info {
+      padding-left: 6px; }
+      .test-info-unit {
+        font-size: 40px;
+        line-height: 40px; }
+      .test-info-text {
+        margin-top: 21px;
+        margin-bottom: 33px; } }
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 0 20px; }
+  .header-button {
+    padding: 0 13px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 12px; }
+  .header-wrap {
+    padding: 17px 20px 0 20px; }
+  .header-logo img {
+    max-width: 100%; }
+  .header-logo_01 {
+    margin-right: 21px;
+    width: 57px; }
+  .header-logo_02 {
+    width: 39px; }
+  .header-title {
+    display: none; }
+  .main-title {
+    margin-bottom: 31px;
+    padding-top: 104px; }
+    .main-title-img {
+      width: 200px; }
+  .main-select {
+    margin-bottom: 38px;
+    width: 220px; }
+  .main-info {
+    padding: 0;
+    margin-left: -10px;
+    width: calc(100% + 20px); }
+    .main-info-unit {
+      margin-bottom: 39px; }
+      .main-info-unit-title {
+        margin-bottom: 15px;
+        font-size: 24px;
+        line-height: 28px; }
+      .main-info-unit-text {
+        margin-right: 10px; }
+  .main-games {
+    margin-bottom: 34px; }
+    .main-games-wrap {
+      padding: 0;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .main-games-unit {
+      margin-bottom: 57px;
+      height: 270px;
+      margin-right: 0; }
+      .main-games-unit-date {
+        line-height: 140px;
+        font-size: 150px;
+        margin-bottom: 34px; }
+    .main-games-month {
+      margin-bottom: 13px; }
+  .select2-selection {
+    font-size: 16px;
+    height: 40px !important;
+    line-height: 40px !important; }
+    .select2-selection__placeholder {
+      line-height: 40px; }
+    .select2-selection__rendered {
+      line-height: 40px !important; }
+  .select2-results__option {
+    font-size: 16px; }
+  .filler-01 {
+    top: 62px;
+    width: 32px; }
+  .filler-02 {
+    width: 80px;
+    top: 90px;
+    right: -14px; }
+  .filler-03 {
+    left: -1px;
+    top: 75px;
+    width: 75px; }
+  .filler-04 {
+    top: calc(100% - 16px);
+    left: -13px;
+    width: 116px; }
+  .filler-05 {
+    right: 33px;
+    bottom: -31px;
+    width: 56.5px; }
+  .popup-wrap {
+    width: calc(100% - 20px);
+    max-width: 520px; }
+  .popup-form {
+    padding: 35px 20px; }
+    .popup-form input[type="submit"] {
+      margin-top: 10px;
+      height: 50px;
+      line-height: 50px; }
+  .popup-title {
+    margin-bottom: 20px;
+    padding: 0 40px;
+    font-size: 24px;
+    line-height: 24px; }
+  .popup-close {
+    right: 0;
+    top: 0px;
+    width: 30px;
+    height: 30px; }
+  .test {
+    background-image: url(../images/test-bg-mobile.svg); }
+    .test-header {
+      padding: 0px 0px;
+      padding-top: 16px; }
+    .test-body {
+      width: 100%;
+      padding-bottom: 35px;
+      padding-top: 44px; }
+    .test-info {
+      width: 100%;
+      padding-left: 0; }
+      .test-info-unit {
+        font-size: 24px;
+        line-height: 28px; }
+    .test-content {
+      width: calc(100% + 20px);
+      margin-left: -10px; }
+      .test-content-progress {
+        margin-top: 90px; }
+        .test-content-progress_final {
+          margin-left: 12px;
+          display: block; }
+          .test-content-progress_final .test-content-progress-title {
+            margin-bottom: 14px; }
+          .test-content-progress_final .test-content-progress-wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 200px;
+            margin-left: 0; }
+      .test-content-unit-question {
+        font-size: 20px !important;
+        line-height: 29px !important; }
+      .test-content-unit-bottom-answers-unit {
+        font-size: 16px;
+        height: 60px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        line-height: 19px;
+        width: calc(50% - 1px); }
+      .test-content-unit-bottom-results-text {
+        height: 64px; }
+      .test-content-unit-bottom-results-button {
+        height: 60px;
+        line-height: 60px; }
+      .test-content-unit_result-title {
+        margin-top: 31px;
+        padding-right: 0;
+        margin-bottom: 37px; }
+      .test-content-unit_result-timer-title {
+        max-width: 200px;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 17px; }
+      .test-content-unit_result-timer-unit-title {
+        font-size: 14px; }
+      .test-content-unit_result-timer-unit-number {
+        font-size: 79px;
+        line-height: 49px; }
+      .test-content-unit_result-timer-unit_divider {
+        font-size: 80px;
+        line-height: 94px; } }
