@@ -25,19 +25,19 @@ html
 				.main-games
 					.main-games-month Ноябрь
 					.main-games-wrap
-						.main-games-unit
+						.main-games-unit.main-games-unit_disabled(data-city="Москва")
 							.main-games-unit-date 36
 							.main-games-unit-info
 								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
 								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
 							.main-games-unit-button.button.button_orange.register Участвовать
-						.main-games-unit.main-games-unit_disabled
+						.main-games-unit.main-games-unit_disabled(data-city="Санкт-Петербург")
 							.main-games-unit-date 15
 							.main-games-unit-info
 								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
 								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
 							.main-games-unit-button.button.button_orange.register Участвовать
-						.main-games-unit.main-games-unit_disabled
+						.main-games-unit.main-games-unit_disabled(data-city="Санкт-Петербург")
 							.main-games-unit-date 16
 							.main-games-unit-info
 								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
@@ -63,9 +63,13 @@ html
 			.popup-wrap
 				.popup-title Регистрация на игру
 				.popup-close
-				.popup-form
-					input(type="text" placeholder="Ваше имя" required)
-					input#inputMaskPhone(type="phone" placeholder="Телефон" required)
-					input(type="email" placeholder="Электронная почта" required)
-					input(type="submit" value="Дальше").button.button_orange
+				.popup-form.popup-form_offline
+					input(type="hidden" id="gameDate" name="gameDate" value="")
+					input(type="hidden" id="gameCity" name="gameCity" value="")
+					input(type="hidden" name="gamePlace" id="gamePlace" value="")
+					input(type="hidden" name="gameTag" id="gameTag" value="BakerHughes")
+					input(type="text" name="contactName" id="contactName" placeholder="Ваше имя" required)
+					input#inputMaskPhone(type="phone" name="contactPhone"  placeholder="Телефон" required)
+					input(type="email" name="contactEmail" id="contactEmail" placeholder="Электронная почта" required)
+					input(type="submit" value="Дальше").button.button_orange.popup-form-submit
 

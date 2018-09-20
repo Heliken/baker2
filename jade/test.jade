@@ -118,24 +118,26 @@ html
 								.test-content-unit_result-timer
 									.test-content-unit_result-timer-title Старт зачетной игры через:
 									.test-content-unit_result-timer-wrap
-										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_days
 											.test-content-unit_result-timer-unit-title Д
 											.test-content-unit_result-timer-unit-number 17
 										.test-content-unit_result-timer-unit_divider :
-										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_hours
 											.test-content-unit_result-timer-unit-title Ч
 											.test-content-unit_result-timer-unit-number 03
 										.test-content-unit_result-timer-unit_divider :
-										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_day
+										.test-content-unit_result-timer-unit.test-content-unit_result-timer-unit_minutes
 											.test-content-unit_result-timer-unit-title М
 											.test-content-unit_result-timer-unit-number 45
 		.popup
 			.popup-wrap
 				.popup-title Регистрация на игру
 				.popup-close
-				.popup-form
-					input(type="text" placeholder="Ваше имя" required)
-					input#inputMaskPhone(type="phone" placeholder="Телефон" required)
-					input(type="email" placeholder="Электронная почта" required)
-					input(type="submit" value="Дальше").button.button_orange
+				.popup-form.popup-form_online
+					input(type="hidden" name="onlineGame" id="onlineGame" value="Онлайн игра")
+					input(type="hidden" name="gameTag" id="gameTag" value="BakerHughes")
+					input(type="text" name="contactName" id="contactName" placeholder="Ваше имя" required)
+					input#inputMaskPhone(type="phone" name="contactPhone"  placeholder="Телефон" required)
+					input(type="email" name="contactEmail" id="contactEmail" placeholder="Электронная почта" required)
+					input(type="submit" value="Дальше").button.button_orange.popup-form-submit
 

@@ -122,7 +122,24 @@
 		}
 		&-content{
 			&-progress{
-				    margin-top: 73px;
+				
+				flex-direction:column;
+				align-items:center;
+				margin-top: 73px;
+				&-title{
+					margin-bottom: 10px;
+				}
+				&-wrap{
+					margin-left: 0;
+				}
+			}
+			&-unit{
+				&_result{
+					&_title{
+						padding-right: 0;
+
+					}
+				}
 			}
 		}
 		&-info{
@@ -318,7 +335,7 @@
 			width:calc(100% + 20px);
 			margin-left: -10px;
 			&-progress{
-				margin-top: 90px;
+				margin-top: 150px;
 				
 				&_final{
 					margin-left: 12px;
@@ -381,6 +398,7 @@
 							&-title{
 
 								font-size: 14px;
+								margin-bottom: 5px;
 							}
 							&-number{
 								    font-size: 79px;
@@ -388,13 +406,28 @@
 							}
 							&_divider{
 								font-size: 80px;
-								line-height: 94px;
+								line-height: 99px;
 							}
 						}
 					}
 				}
 			}
 			
+		}
+	}
+}
+@media(max-width:375px){
+	.test{
+		&-content{
+			&-progress{
+				margin-top: 90px;
+			}
+			&-unit{
+				&-question{
+					font-size: 18px!important;
+					line-height: 26px!important;
+				}
+			}
 		}
 	}
 }

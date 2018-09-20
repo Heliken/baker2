@@ -360,6 +360,7 @@ input[type=submit], input[type=button] {
 				}
 			}
 			&-button{
+				@include transition(.3s);
 				line-height: 54px;
 				width:181px;
 				height:54px;
@@ -602,7 +603,11 @@ input[type=submit], input[type=button] {
 			margin-top: -15px;
 			font-family:'GraublauSansItalic';
 			display: flex;
+			&-title{
+				
+			}
 			&-wrap{
+				
 				padding:0 6px;
 				display: flex;
 				align-items:center;
@@ -852,6 +857,7 @@ input[type=submit], input[type=button] {
 					margin-bottom: 67px;
 				}
 				&-timer{
+					padding-bottom: 20px;
 					&-title{
 						font-family:'GraublauSlab-Bold';
 						font-size: 30px;
@@ -864,6 +870,7 @@ input[type=submit], input[type=button] {
 							font-family:'GraublauSansDisplay-Bold';
 							font-size: 14px;
 							line-height: 23px;
+							    margin-bottom: 10px;
 						}
 						&-number{
 							font-family:'GraublauSlab-HeavyItalic';
@@ -874,7 +881,11 @@ input[type=submit], input[type=button] {
 							margin:0 5px;
 							font-family:'GraublauSansDisplay-Bold';
 							font-size: 90px;
-							line-height: 105px;
+							line-height: 115px;
+							opacity: 1;
+							&_hide{
+								opacity: 0;
+							}
 						}
 
 					}
@@ -882,7 +893,7 @@ input[type=submit], input[type=button] {
 						display: flex;
 					}
 				}
-			}
+			} 
 		}
 
 	}
