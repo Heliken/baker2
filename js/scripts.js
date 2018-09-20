@@ -56,8 +56,8 @@ $(document).ready(function(){
 		var cityVal=String($("#gameCity").val());
 		var placeVal=String($("#gamePlace").val());
 		if(name.val()!=""&&phone.val().indexOf('_') < 1&&name.val()!=""){
-			var yourdomain = 'mskdetectit'; // Your freshdesk domain name. Ex., yourcompany
-	        var api_key = 'zlq8IAkrYtd6z0fMk2td'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
+			var yourdomain = 'mozgvacorp2'; // Your freshdesk domain name. Ex., yourcompany
+	        var api_key = 'lFG6FjkFRnEyrrmH3w0q'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
 	        var formdata = new FormData();
 	       
 	        
@@ -117,9 +117,7 @@ $(document).ready(function(){
           }
         );
 
-		if($(".popup-form").hasClass("popup-form_online")){
-
-		}
+		
 	})
 	$(".register").click(function(){
 		$(".popup").addClass("popup_active");
