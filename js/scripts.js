@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 	    	})
 	    }
-			else if(data.id=="Сахалин"){
+			else if(data.id=="Тюмень"){
 	    	$(".main-games-unit").each(function(){
 	    		if($(this).attr("data-city")=="Тюмень"){
 	    			$(this).removeClass("main-games-unit_disabled");
