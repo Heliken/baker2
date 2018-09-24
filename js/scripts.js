@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 	// Your functions go here
 
-	
+
 	$(".main-select select").select2({
 	    placeholder: "Ваш город",
 	    minimumResultsForSearch: Infinity
@@ -24,13 +24,53 @@ $(document).ready(function(){
 	    		if($(this).attr("data-city")=="Москва"){
 	    			$(this).removeClass("main-games-unit_disabled");
 	    		}
-	    		
+
+	    	})
+	    }
+			else if(data.id=="Нижневартовск"){
+	    	$(".main-games-unit").each(function(){
+	    		if($(this).attr("data-city")=="Нижневартовск"){
+	    			$(this).removeClass("main-games-unit_disabled");
+	    		}
+
+	    	})
+	    }
+			else if(data.id=="Нефтеюганск"){
+	    	$(".main-games-unit").each(function(){
+	    		if($(this).attr("data-city")=="Нефтеюганск"){
+	    			$(this).removeClass("main-games-unit_disabled");
+	    		}
+
+	    	})
+	    }
+			else if(data.id=="Ноябрьск"){
+	    	$(".main-games-unit").each(function(){
+	    		if($(this).attr("data-city")=="Ноябрьск"){
+	    			$(this).removeClass("main-games-unit_disabled");
+	    		}
+
+	    	})
+	    }
+			else if(data.id=="Сахалин"){
+	    	$(".main-games-unit").each(function(){
+	    		if($(this).attr("data-city")=="Сахалин"){
+	    			$(this).removeClass("main-games-unit_disabled");
+	    		}
+
+	    	})
+	    }
+			else if(data.id=="Сахалин"){
+	    	$(".main-games-unit").each(function(){
+	    		if($(this).attr("data-city")=="Тюмень"){
+	    			$(this).removeClass("main-games-unit_disabled");
+	    		}
+
 	    	})
 	    }
 	});
 	$("#inputMaskPhone").inputmask({"mask": "+7(999) 999-99-99"});
 	$(".main-games-unit-button").click(function(){
-		
+
 		var _this=$(this);
 		var gameUnit=_this.parents(".main-games-unit");
 		var gameUnitCity=gameUnit.attr("data-city");
@@ -59,15 +99,15 @@ $(document).ready(function(){
 			var yourdomain = 'mozgvacorp2'; // Your freshdesk domain name. Ex., yourcompany
 	        var api_key = 'lFG6FjkFRnEyrrmH3w0q'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
 	        var formdata = new FormData();
-	       
-	        
+
+
 	        formdata.append('name', nameVal);
 	        formdata.append('phone', phoneVal);
 	        phoneVal=phoneVal.split(" ").join("");
 	       	phoneVal=phoneVal.split("(").join("");
 	       	phoneVal=phoneVal.split(")").join("");
 	       	phoneVal=phoneVal.split("-").join("");
-	       	
+
 	       	formdata.append('priority', '1');
         	formdata.append('status', '2');
         	if($(".popup-form").hasClass("popup-form_offline")){
@@ -85,7 +125,7 @@ $(document).ready(function(){
 				for (var i = 0; i < arr.length; i++) {
 				    formdata.append('tags[]', arr[i]);
 				}
- 				
+
 			}
 
 		}
@@ -111,13 +151,13 @@ $(document).ready(function(){
 				$(".popup").removeClass("popup_active");
             },
             error: function(jqXHR, tranStatus) {
-              
+
 
             }
           }
         );
 
-		
+
 	})
 	$(".register").click(function(){
 		$(".popup").addClass("popup_active");
@@ -180,8 +220,8 @@ $(document).ready(function(){
 		}
 	})
 	var targetDate=new Date(2018, 9, 20, 18, 0, 0, 0);
-	
-	
+
+
 	setInterval(function(){
 		var currentDate=new Date();
 		var dateDifferences=targetDate-currentDate;
@@ -198,7 +238,7 @@ $(document).ready(function(){
 			$(".test-content-unit_result-timer-unit_divider").removeClass("test-content-unit_result-timer-unit_divider_hide");
 		},300)
 	},1000)
-	
+
 
 });
 
@@ -206,11 +246,11 @@ $(document).ready(function(){
 /* Optional triggers
 
 $(window).load(function() {
-	
+
 });
 
-$(window).resize(function() { 
-	
+$(window).resize(function() {
+
 });
 
 */
