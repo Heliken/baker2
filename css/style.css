@@ -995,6 +995,12 @@ a {
     margin-bottom: 68px; }
     .main-select .select2-container {
       width: 100% !important; }
+    .main-select_error {
+      border-bottom: 1px solid #E8244C; }
+      .main-select_error .select2-selection__placeholder {
+        color: #E8244C !important; }
+      .main-select_error .select2-selection__arrow {
+        background-image: url(../images/icon-dropdown-arrow_red.svg); }
   .main-games {
     margin-bottom: 102px; }
     .main-games-wrap {
@@ -1062,7 +1068,6 @@ a {
         -ms-transform: translateY(50%) translateX(-50%);
         transform: translateY(50%) translateX(-50%); }
       .main-games-unit_disabled .main-games-unit-button {
-        pointer-events: none;
         -webkit-box-shadow: none;
         box-shadow: none;
         background-color: #F5F5F5;

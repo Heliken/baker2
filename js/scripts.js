@@ -70,7 +70,6 @@ $(document).ready(function(){
 	});
 	$("#inputMaskPhone").inputmask({"mask": "+7(999) 999-99-99"});
 	$(".main-games-unit-button").click(function(){
-
 		var _this=$(this);
 		var gameUnit=_this.parents(".main-games-unit");
 		var gameUnitCity=gameUnit.attr("data-city");
@@ -148,7 +147,11 @@ $(document).ready(function(){
 				name.val("");
 				phone.val("");
 				email.val("");
-				$(".popup").removeClass("popup_active");
+				$(".popup_form").removeClass("popup_active");
+				$(".popup_finish").addClass("popup_active");
+				setTimeout(function(){
+					$(".popup_finish").removeClass("popup_active");
+				},4000);
             },
             error: function(jqXHR, tranStatus) {
 
@@ -160,7 +163,20 @@ $(document).ready(function(){
 
 	})
 	$(".register").click(function(){
-		$(".popup").addClass("popup_active");
+		var _this=$(this);
+		if(_this.parents(".main-games-unit").hasClass("main-games-unit_disabled")){
+			if($('.main-select select').val()==""){
+				$('html, body').animate({
+	                scrollTop: $(".main-select").offset().top
+	            }, 2000);
+	            $(".main-select").addClass("main-select_error");
+	            setTimeout(function(){
+	            	$(".main-select").removeClass("main-select_error");
+	            },3000)
+	        }
+		} else{
+			$(".popup_form").addClass("popup_active");
+		}
 	})
 	$('.popup-close').click(function(){
 		$(this).parents('.popup').removeClass("popup_active");
