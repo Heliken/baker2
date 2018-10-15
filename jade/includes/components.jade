@@ -5,12 +5,12 @@ mixin header
 		.container
 			.header-wrap
 				.header-logo-wrap
-					a(href="#/").header-logo.header-logo_01
+					a(href="/").header-logo.header-logo_01
 						img(src="images/bh-logo.svg" alt="")
-					a(href="#/").header-logo.header-logo_02
+					a(href="/").header-logo.header-logo_02
 						img(src="images/mzgv-logo.svg" alt="")
 				.header-title Интеллектуальная олимпиада
-				a(href="#/").button.button_orange.header-button Не смогу участвовать
+				a(href="/test.html").button.button_orange.header-button Не смогу участвовать
 
 mixin footer
 	footer&attributes(attributes): .container Footer
@@ -19,13 +19,20 @@ mixin footer
 mixin head(title)
 	head
 		meta(charset="utf-8")
+		<!-- Google Tag Manager -->
+		script.
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N3R5QZ');
+		<!-- End Google Tag Manager -->
 		title= title
-
+		meta(name="description" content="Что такое «Мозгва»? Это игра, в которой мы задаем вам вопросы на логику, эрудицию и интуицию, а вы на них отвечаете")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
 		meta(name="format-detection" content="telephone=no")
-
+		link(rel="shortcut icon" href="https://mozgva.com/assets/favicon-3-3e0b2943e2df8471c385a6fcd1b9b6efcf655070e09ec4d4c872dac1940ef348.ico" type="image/x-icon")
 		link(rel="stylesheet" type="text/css" href="css/style.css")
 		link(rel="stylesheet" type="text/css" href="css/media.css")
 		script(type="text/javascript" src="js/libs.js")
 		block
 		script(type="text/javascript" src="js/scripts.js")
+		meta(property="og:title" content="«Мозгва» для Backer Hughes")
+		meta(property="og:description" content="Что такое «Мозгва»? Это игра, в которой мы задаем вам вопросы на логику, эрудицию и интуицию, а вы на них отвечаете")
+		meta(property="og:image" content="http://baker-hughes.mozgva.ru/images/bh-snippet-min")

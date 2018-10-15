@@ -2,9 +2,13 @@ include ./includes/components.jade
 
 doctype html
 html
-	+head ('Index')
+	+head ('Интеллектуальная олимпиада - «Мозгва» для Backer Hughes')
 
 	body
+		<!-- Google Tag Manager (noscript) -->
+		noscript
+			iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-N3R5QZ" height="0" width="0" style="display:none;visibility:hidden")
+		<!-- End Google Tag Manager (noscript) -->
 		+header
 
 		.main
@@ -20,29 +24,54 @@ html
 				.main-select.select-wrap
 					select(name="select city")
 						option
+						option Тюмень
 						option Москва
-						option Санкт-Петербург
+						option Нижневартовск
+						option Нефтеюганск
+						option Ноябрьск
+						option Сахалин
 				.main-games
+					.main-games-month Октябрь
+					.main-games-wrap
+						.main-games-unit.main-games-unit_disabled(data-city="Тюмень")
+							.main-games-unit-date 18
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Тюмень
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
+						.main-games-unit.main-games-unit_disabled(data-city="Москва")
+							.main-games-unit-date 18
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Москва
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
+						.main-games-unit.main-games-unit_disabled(data-city="Нижневартовск")
+							.main-games-unit-date 25
+							.main-games-unit-info
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Нижневартовск
+								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
+							.main-games-unit-button.button.button_orange.register Участвовать
 					.main-games-month Ноябрь
 					.main-games-wrap
-						.main-games-unit.main-games-unit_disabled(data-city="Москва")
-							.main-games-unit-date 36
+						.main-games-unit.main-games-unit_disabled(data-city="Нефтеюганск")
+							.main-games-unit-date 1
 							.main-games-unit-info
-								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Нефтеюганск
 								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
 							.main-games-unit-button.button.button_orange.register Участвовать
-						.main-games-unit.main-games-unit_disabled(data-city="Санкт-Петербург")
-							.main-games-unit-date 15
+						.main-games-unit.main-games-unit_disabled(data-city="Ноябрьск")
+							.main-games-unit-date 8
 							.main-games-unit-info
-								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Ноябрьск
 								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
 							.main-games-unit-button.button.button_orange.register Участвовать
-						.main-games-unit.main-games-unit_disabled(data-city="Санкт-Петербург")
-							.main-games-unit-date 16
+						.main-games-unit.main-games-unit_disabled(data-city="Сахалин")
+							.main-games-unit-date 8
 							.main-games-unit-info
-								.main-games-unit-info-unit.main-games-unit-info-unit_place «Название площадки» 
+								.main-games-unit-info-unit.main-games-unit-info-unit_place Сахалин
 								.main-games-unit-info-unit.main-games-unit-info-unit_time 20:00
 							.main-games-unit-button.button.button_orange.register Участвовать
+
 				.main-info
 						.main-info-unit
 							.main-info-unit-title Как подготовиться?
@@ -51,15 +80,12 @@ html
 							.main-info-unit-title Где это будет происходить?
 							.main-info-unit-text В Вашем городе или ближайшем к вам городе. Игра проходит в ресторане, регистрируйтесь и просто приходите в назначенное место и время. А еще мы позвоним вам за день до игры подтвердить ваше участие.
 						.main-info-unit
-							.main-info-unit-title Дресс-код?
-							.main-info-unit-text Да, мероприятие официальное, все будут нарядными.
-						.main-info-unit
 							.main-info-unit-title Что такое «Мозгва»?
 							.main-info-unit-text Это игра, в которой мы задаем вам вопросы на логику, эрудицию и интуицию, а вы на них отвечаете
 						.main-info-unit
 							.main-info-unit-title Какие правила?
 							.main-info-unit-text Все правила мы расскажем прямо перед игрой. Все очень просто, мы задаем вопросы, вы пишете ответ на бланке.
-		.popup
+		.popup.popup_form
 			.popup-wrap
 				.popup-title Регистрация на игру
 				.popup-close
@@ -72,4 +98,8 @@ html
 					input#inputMaskPhone(type="phone" name="contactPhone"  placeholder="Телефон" required)
 					input(type="email" name="contactEmail" id="contactEmail" placeholder="Электронная почта" required)
 					input(type="submit" value="Дальше").button.button_orange.popup-form-submit
+		.popup.popup_finish
+			.popup-wrap
+				.popup-title Спасибо за регистрацию!
+		
 

@@ -235,17 +235,26 @@ $(document).ready(function(){
 			//$(".test-content-progress").addClass("test-content-progress_final");
 		}
 	})
-	var targetDate=new Date(2018, 9, 20, 18, 0, 0, 0);
+	var targetDate=new Date(2018, 9, 22, 20, 0, 0, 0);
 
 
 	setInterval(function(){
 		var currentDate=new Date();
 		var dateDifferences=targetDate-currentDate;
 		var fullDays=Math.floor(dateDifferences/(1000*60*60*24));
+		if(fullDays<10){
+			fullDays="0"+fullDays;
+		}
 		dateDifferences=dateDifferences - fullDays*(1000*60*60*24);
 		var fullHours=Math.floor(dateDifferences/(1000*60*60));
+		if(fullHours<10){
+			fullHours="0"+fullHours;
+		}
 		dateDifferences=dateDifferences - fullHours*(1000*60*60);
 		var fullMinutes=Math.floor(dateDifferences/(1000*60));
+		if(fullMinutes<10){
+			fullMinutes="0"+fullMinutes;
+		}
 		$(".test-content-unit_result-timer-unit_days .test-content-unit_result-timer-unit-number").html(fullDays);
 		$(".test-content-unit_result-timer-unit_hours .test-content-unit_result-timer-unit-number").html(fullHours);
 		$(".test-content-unit_result-timer-unit_minutes .test-content-unit_result-timer-unit-number").html(fullMinutes);
