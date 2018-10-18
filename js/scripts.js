@@ -82,6 +82,11 @@ $(document).ready(function(){
 		$("#gameCity").val(gameUnitCity);
 		$("#gamePlace").val(gameUnitPlace);
 	})
+	/* FRESHDESK VALUES*/
+	var yourdomain = 'mozgvacorp2'; // Your freshdesk domain name. Ex., yourcompany
+	var api_key = 'lFG6FjkFRnEyrrmH3w0q'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
+	/* ---------------------*/
+
 	$(".popup-form-submit").click(function(){
 		var name=$("#contactName");
 		var phone=$("#inputMaskPhone");
@@ -95,8 +100,7 @@ $(document).ready(function(){
 		var cityVal=String($("#gameCity").val());
 		var placeVal=String($("#gamePlace").val());
 		if(name.val()!=""&&phone.val().indexOf('_') < 1&&name.val()!=""){
-			var yourdomain = 'mozgvacorp2'; // Your freshdesk domain name. Ex., yourcompany
-	        var api_key = 'lFG6FjkFRnEyrrmH3w0q'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
+			
 	        var formdata = new FormData();
 
 
@@ -109,7 +113,7 @@ $(document).ready(function(){
 
 	       	formdata.append('priority', '1');
         	formdata.append('status', '2');
-        	if($(".popup-form").hasClass("popup-form_offline")){
+        	if($(this).parents(".popup-form").hasClass("popup-form_offline")){
  				formdata.append('description', 'Имя: '+nameVal+' ,Email: '+emailVal+' , Телефон: '+phoneVal+' , Место проведения: '+placeVal+' , Город: '+cityVal+" , Дата игры: "+dateVal);
  				formdata.append('subject',"Регистрация на оффлайн игру, Baker Hughes");
  				var arr = [cityVal,bakerTag];
@@ -117,7 +121,7 @@ $(document).ready(function(){
 				    formdata.append('tags[]', arr[i]);
 				}
 			}
-			if($(".popup-form").hasClass("popup-form_online")){
+			if($(this).parents(".popup-form").hasClass("popup-form_online")){
 				formdata.append('description', 'Имя: '+nameVal+' ,Email: '+emailVal+' , Телефон: '+phoneVal);
 				formdata.append('subject',"Регистрация на онлайн игру, Baker Hughes");
 				var arr = [bakerTag,onlineVal];
@@ -162,6 +166,208 @@ $(document).ready(function(){
 
 
 	})
+	
+    
+	function checkAmountOfPlayersStartedGame(){
+		var amountOfPlayersStartedGame=0;
+		var amountOfPlayersUrl='https://'+yourdomain+'.freshdesk.com/api/v2/search/tickets?query="tag:';
+		var amountOfPlayersAdditionalUrl="'начал онлайн игру'";
+	 	amountOfPlayersUrl=amountOfPlayersUrl.concat(amountOfPlayersAdditionalUrl);
+	 	amountOfPlayersUrl=amountOfPlayersUrl.concat('"');
+
+		$.ajax(
+	      {
+	        url: amountOfPlayersUrl,
+	        type: 'GET',
+	        contentType: false,
+	        async: false,
+	        headers: {
+	          "Authorization": "Basic " + btoa(api_key + ":x")
+	        },
+	        success: function(data, textStatus, jqXHR) {
+	        	amountOfPlayersStartedGame=amountOfPlayersStartedGame+data.total;
+	        },
+	        error: function(jqXHR, tranStatus) {
+
+
+	        }
+	      }
+	    );
+	    
+		return amountOfPlayersStartedGame
+	}
+	
+    
+	$(".test-register .button").click(function(){
+		var rulesAgreement=$("#rulesAgreement:checked").length > 0;
+		var name=$("#contactName2");
+		var phone=$(".inputMaskPhone2");
+		var nickname=$("#contactNickname");
+		var nameVal=String(name.val());
+		var phoneVal=String(phone.val());
+		var nicknameVal=String(nickname.val());
+		var nicknameIsUnique=true;
+		if(name.val()!=""&&phone.val().indexOf('_') < 1&&nickname.val()!=""&&rulesAgreement){
+			var nicknameCheckUrl='https://'+yourdomain+'.freshdesk.com/api/v2/search/tickets?query="tag:';
+			var nicknameCheckAdditionalUrl="'"+nicknameVal+"'";
+			nicknameCheckUrl=nicknameCheckUrl.concat(nicknameCheckAdditionalUrl);
+			nicknameCheckUrl=nicknameCheckUrl.concat('"');
+			/* check nickname for uniqueness*/
+			$.ajax(
+	          {
+	            url: nicknameCheckUrl,
+	            type: 'GET',
+	            contentType: false,
+	            async:false,
+	            headers: {
+	              "Authorization": "Basic " + btoa(api_key + ":x")
+	            },
+	            success: function(data, textStatus, jqXHR) {
+	            	if(data.total>0){
+	            		console.log(1);
+	            		nicknameIsUnique=false;
+	            		proceedUniqueData();
+	            	} else{
+	            		registerOnlineGameUserUser();
+	            	}
+	            	
+	            },
+	            error: function(jqXHR, tranStatus) {
+	            	
+
+	            }
+	          }
+	        );
+	        function proceedUniqueData(){
+	        	if(!(nicknameIsUnique)){
+		        	var input_nickname=$(".input-wrap_nickname");
+			    	input_nickname.addClass("input-wrap_error");
+			    	setTimeout(function(){
+			    		input_nickname.removeClass("input-wrap_error");
+			    	},3000);
+	        	}
+	        }
+	        function registerOnlineGameUserUser(){
+	        	var formdata = new FormData();
+	        	var amountOfPlayersStartedGame=checkAmountOfPlayersStartedGame();
+	        	var playerID=amountOfPlayersStartedGame+1;
+	        	formdata.append('name', nameVal);
+		        formdata.append('phone', phoneVal);
+		        //formdata.append('custom_fields[department]','IT');
+		        phoneVal=phoneVal.split(" ").join("");
+		       	phoneVal=phoneVal.split("(").join("");
+		       	phoneVal=phoneVal.split(")").join("");
+		       	phoneVal=phoneVal.split("-").join("");
+		       	formdata.append('priority', '1');
+        		formdata.append('status', '2');
+        		formdata.append('description', 'Начал онлайн игру. Имя: '+nameVal+' , Телефон: '+phoneVal+' , Псевдоним: '+nicknameVal+', ID пользователя:'+playerID);
+ 				formdata.append('subject',"Старт онлайн игры , Baker Hughes");
+ 				var arr = ['начал онлайн игру',nicknameVal];
+				for (var i = 0; i < arr.length; i++) {
+				    formdata.append('tags[]', arr[i]);
+				}
+				$.ajax(
+		          {
+		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets",
+		            type: 'POST',
+		          	contentType: false,
+		            dataType: "json",
+		            processData: false,
+		            headers: {
+		              "Authorization": "Basic " + btoa(api_key + ":x")
+		            },
+		            data: formdata,
+		            success: function(data, textStatus, jqXHR) {
+						name.val("");
+						phone.val("");
+						nickname.val("");
+						$(".popup_form").removeClass("popup_active");
+						$(".popup_finish").addClass("popup_active");
+						setTimeout(function(){
+							$(".popup_finish").removeClass("popup_active");
+						},4000);
+						$(".test-wrap").slick("slickNext");
+		            },
+		            error: function(jqXHR, tranStatus) {
+
+
+		            }
+		          }
+		        );
+	        };
+			
+		}
+		
+
+	})
+	var questions;
+
+	$.getJSON( "localization.json", function( json ) {
+    	questions=json;
+
+	}).done(function() {
+		executeQuestionParsing(questions[0]);
+		executeQuestionParsing(questions[1]);
+	});
+
+	function executeQuestionParsing(questionObject){
+		var id=questionObject.id;
+		var answers=convertStringToArray(questionObject.answers);
+
+		var text=questionObject.text;
+		var correctAnswer=questionObject.correctAnswer;
+		var commentCorrect=questionObject.commentCorrect;
+		var commentWrong=questionObject.commentWrong;
+		if(questionObject.imagesQuestion){
+			var imagesQuestion=convertStringToArray(questionObject.imagesQuestion);
+		} else{
+			imagesQuestion=[];
+		}
+		if(questionObject.imagesAnswer){
+			var imagesAnswer=convertStringToArray(questionObject.imagesAnswer);
+		} else{
+			imagesAnswer=[];
+		}
+		/*
+		console.log(id);
+		console.log(answers);
+		console.log(text);
+		console.log(correctAnswer);
+		console.log(commentCorrect);
+		console.log(commentWrong);
+		console.log(imagesQuestion);
+		console.log(imagesAnswer);
+		console.log("-----------------------------");
+		*/
+	}
+
+	function convertStringToArray(string){
+		var string=string;
+    	//string=string.replace(/"/g, '');
+		var array=[];
+		var objectFromString=string.split("|");
+		for (var key in objectFromString) {
+			array.push(objectFromString[key]);
+
+		}
+		return array;
+	}
+	
+    
+   
+	$(".test-wrap").slick({
+		fade:true,
+		arrows:false,
+		initialSlide:0,
+		infinite:false,
+		draggable:false,
+        accessibility:false,
+        scroll:false,
+        swipe:false,
+        touchMove:false,
+        adaptiveHeight:true,
+        speed:200
+	});
 	$(".register").click(function(){
 		var _this=$(this);
 		if(_this.parents(".main-games-unit").hasClass("main-games-unit_disabled")){
@@ -187,6 +393,13 @@ $(document).ready(function(){
 	$('.popup-wrap').click(function(e){
 		e.stopPropagation();
 	})
+	$("#showRules").click(function(){
+		$(".popup_rules").addClass("popup_active");
+	})
+	$(".popup_rules .button").click(function(){
+		$(this).parents(".popup").removeClass("popup_active");
+	})
+
 	$(".test-content").slick({
 		fade:true,
 		arrows:false,
@@ -232,12 +445,21 @@ $(document).ready(function(){
 		$(this).parents(".test-content").slick("slickNext");
 		if($(this).parents(".test-content-unit").hasClass("test-content-unit_final")){
 			$(".test-content-progress-title").html("Ваш результат "+correctAnswers+"/6");
-			//$(".test-content-progress").addClass("test-content-progress_final");
+			//$(".test-content-progress").addClass("test-content-progress_final")
+			$(".test-content").addClass("test-content_final");
 		}
+
 	})
-	var targetDate=new Date(2018, 9, 22, 20, 0, 0, 0);
+	var targetDate=new Date(2018, 7, 22, 20, 0, 0, 0);
 
+	var currentDate=new Date();
+	if(targetDate<=currentDate){
+		$(".test-content-unit_result .test-content-unit-button").addClass("test-content-unit-button_shown");
+		$(".test-info-button").addClass("button_disabled");
+		$(".test-content-unit_result-timer").addClass("test-content-unit_result-timer_hidden");
+		$(".test-content-unit_result-title").html("Вы — молодец! У вас все шансы занять неплохое место на зачетной игре. Если готовы, придумайте себе смешной псевдоним, и можете начинать зачетную игру. Удачи!");
 
+	}
 	setInterval(function(){
 		var currentDate=new Date();
 		var dateDifferences=targetDate-currentDate;
@@ -262,11 +484,34 @@ $(document).ready(function(){
 		setTimeout(function(){
 			$(".test-content-unit_result-timer-unit_divider").removeClass("test-content-unit_result-timer-unit_divider_hide");
 		},300)
+		if(targetDate<=currentDate){
+			$(".test-content-unit_result .test-content-unit-button").addClass("test-content-unit-button_shown");
+			$(".test-info-button").addClass("button_disabled");
+			$(".test-content-unit_result-timer").addClass("test-content-unit_result-timer_hidden");
+		}
 	},1000)
-
-
+	$(".test-content-unit_result .test-content-unit-button").click(function(){
+		$(".test-wrap").slick("slickNext");
+	})
+	var windowWidth=$(window).outerWidth(true);
+	 if(windowWidth<768){
+	 	$(".test-main-introUnit-container").each(function(){
+	 		var _this=$(this);
+	 		var image=_this.find('.test-main-introUnit-image');
+	 		$(".test-main-introUnit-navigation").after(image);
+	 	})
+	 }
 });
-
+$(window).on("load resize",function(){
+	 var windowWidth=$(window).outerWidth(true);
+	 if(windowWidth<768){
+	 	$(".test-main-introUnit-container").each(function(){
+	 		var _this=$(this);
+	 		var image=_this.find('.test-main-introUnit-image');
+	 		$(".test-main-introUnit-navigation").after(image);
+	 	})
+	 }
+})
 
 /* Optional triggers
 
