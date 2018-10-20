@@ -82,6 +82,9 @@ $(document).ready(function(){
 		$("#gameCity").val(gameUnitCity);
 		$("#gamePlace").val(gameUnitPlace);
 	})
+	$(".test-main-introUnit-button").click(function(){
+		$(this).parents(".test-main-segment ").slick("slickNext");
+	})
 	/* FRESHDESK VALUES*/
 	var yourdomain = 'mozgvacorp2'; // Your freshdesk domain name. Ex., yourcompany
 	var api_key = 'lFG6FjkFRnEyrrmH3w0q'; // Ref: https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key
@@ -353,9 +356,76 @@ $(document).ready(function(){
 		return array;
 	}
 	
-    
-   
-	$(".test-wrap").slick({
+    /* слайдер четвертого порядка*/
+    $(".test-main-body-images-wrap").on('init', function(event,slick){
+    	event.stopPropagation()
+    })
+   	$(".test-main-body-images-wrap").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		event.stopPropagation();
+    })
+    $(".test-main-body-images-wrap").on('afterChange', function(event, slick, currentSlide, nextSlide){
+		event.stopPropagation();
+    })
+	$(".test-main-body-images-wrap").slick({
+		fade:true,
+		arrows:false,
+		initialSlide:0,
+		infinite:false,
+		//draggable:false,
+        accessibility:false,
+        //scroll:false,
+        //swipe:false,
+        //touchMove:false,
+        adaptiveHeight:true,
+        speed:200,
+        dots:true,
+
+
+	});
+	/* слайдер третьего  порядка*/
+	$(".test-main-body-footer").on('afterChange', function(event, slick, currentSlide){
+		var results=$(this).find(".test-main-body-footer-results");
+		if(results.css("opacity")=="1"){
+			results.addClass("test-main-body-footer-results_current");
+		}
+	})
+	$(".test-main-body-footer").slick({
+		fade:true,
+		arrows:false,
+		initialSlide:0,
+		infinite:false,
+		draggable:false,
+        accessibility:false,
+        scroll:false,
+        swipe:false,
+        touchMove:false,
+        adaptiveHeight:true,
+        speed:200
+	})
+	/* слайдер третьего  порядка*/
+	$(".test-main-body-images-body").on('init', function(slick){
+
+ 		var slidesAmount=$(this).find(".test-main-body-images-wrap").eq(0).find(".test-main-body-images-unit").length;
+ 		if(slidesAmount>1){
+ 			$(this).parents(".test-main-body-images").addClass("test-main-body-images_multislide");
+ 		} else{
+ 			$(this).parents(".test-main-body-images").removeClass("test-main-body-images_multislide");
+ 		}
+	});
+	$(".test-main-body-images-body").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+ 		
+ 		var slidesAmount=$(this).find(".test-main-body-images-wrap").eq(nextSlide).find(".test-main-body-images-unit").length;
+ 		if(slidesAmount>1){
+ 			$(this).parents(".test-main-body-images").addClass("test-main-body-images_multislide");
+ 		} else{
+ 			$(this).parents(".test-main-body-images").removeClass("test-main-body-images_multislide");
+ 		}
+
+	});
+	$(".test-main-body-images-body").on('afterChange', function(event, slick, currentSlide){
+ 		$(this).find(".test-main-body-images-wrap").eq(currentSlide).addClass("test-main-body-images-wrap_answer");
+	});
+	$(".test-main-body-images-body").slick({
 		fade:true,
 		arrows:false,
 		initialSlide:0,
@@ -368,6 +438,109 @@ $(document).ready(function(){
         adaptiveHeight:true,
         speed:200
 	});
+
+
+	/* слайдер второго порядка*/
+
+	
+	$(".test-main-segment").on('afterChange', function(event, slick, currentSlide){
+		//console.log(1);
+		//$(".test-wrap").find(".slick-slide").height("auto");
+		$(".test-wrap").children(".slick-list").children(".slick-track").children(".slick-slide").height("auto");
+		$(".test-wrap").slick("setOption", '', '', true);
+		$(this).find(".test-main-unit").eq(currentSlide-1).addClass("test-main-unit_current");
+		//console.log(currentSlide);
+		//console.log($(this).find(".test-main-unit").eq(currentSlide));
+	})
+	$(".test-main-segment").slick({
+		fade:true,
+		arrows:false,
+		initialSlide:0,
+		infinite:false,
+		draggable:false,
+        accessibility:false,
+        scroll:false,
+        swipe:false,
+        touchMove:false,
+        adaptiveHeight:true,
+        //speed:200
+	})
+   	/* слайдер первого порядка*/
+   $(".test-wrap").on('afterChange', function(event, slick,nextSlide, currentSlide){
+		$(this).find(".test-main-segment").each(function(){
+			if($(this).css("opacity")=="1"){
+				$(this).addClass("test-main-segment_started");
+			}
+		})
+	})
+	$(".test-wrap").slick({
+		fade:true,
+		arrows:false,
+		initialSlide:2,
+		infinite:false,
+		draggable:false,
+        accessibility:false,
+        scroll:false,
+        swipe:false,
+        touchMove:false,
+        adaptiveHeight:true,
+        speed:200
+	});
+	
+	
+	
+	
+
+	
+	$(".test-main-body-images-controls-unit_next").click(function(){
+		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
+		imageWrapSlides.each(function(){
+			var notFirstSlide=$(this).hasClass("slick-active")&&$(this).css("left")!="0px";
+			if($(this).css("left")=="0px"||notFirstSlide){
+				$(this).slick("slickNext");
+			}
+		})
+	})
+	$(".test-main-body-images-controls-unit_prev").click(function(){
+		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
+		imageWrapSlides.each(function(){
+			var notFirstSlide=$(this).hasClass("slick-active")&&$(this).css("left")!="0px";
+			if($(this).css("left")=="0px"||notFirstSlide){
+				$(this).slick("slickPrev");
+			}
+		})
+	})
+	$(".test-main-body-footer-answers-unit").click(function(){
+		var _this=$(this);
+		var answer=_this.html();
+		var questionIndex=_this.parents(".test-main-unit").index()-1;
+		
+		_this.parents(".test-main-body-footer").slick("slickNext");
+		_this.parents(".test-main-body-unit").find(".test-main-body-images-body").slick("slickNext");
+		_this.parents(".test-main-body-footer").find(".test-main-body-footer-results-info-title").html(answer);
+		var progress=_this.parents(".test-main-segment").find(".test-content-progress");
+		
+		if( _this.hasClass("test-main-body-footer-answers-unit_correct")){
+			_this.parents(".test-main-body-footer").find(".test-main-body-footer-results").addClass("test-main-body-footer-results_correct");
+			progress.each(function(){
+				$(this).find(".test-content-progress-unit").eq(questionIndex).addClass("test-content-progress-unit_correct");
+			})
+		} else{
+			progress.each(function(){
+				$(this).find(".test-content-progress-unit").eq(questionIndex).addClass("test-content-progress-unit_wrong");
+			})
+		}
+		
+	})
+	$(".test-main-body-footer-results-button").click(function(){
+		var _this=$(this);
+		_this.parents(".test-main-segment").slick("slickNext");
+		var questionIndex=_this.parents(".test-main-unit").index();
+		var progress=_this.parents(".test-main-segment").find(".test-content-progress");
+		progress.each(function(){
+			$(this).find(".current").html(questionIndex+1);
+		})
+	})
 	$(".register").click(function(){
 		var _this=$(this);
 		if(_this.parents(".main-games-unit").hasClass("main-games-unit_disabled")){
@@ -511,6 +684,7 @@ $(window).on("load resize",function(){
 	 		$(".test-main-introUnit-navigation").after(image);
 	 	})
 	 }
+	$('.slick-slider').slick('setPosition');
 })
 
 /* Optional triggers
