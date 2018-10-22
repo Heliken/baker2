@@ -38,7 +38,7 @@
       "correctAnswer": "Название остановки",
       "commentCorrect": "О да. Это хоть странно, но можно взять на вооружение себе - название остановки в транспорте.",
       "commentWrong": "Смешно, но нет, здесь цель одна - не проспать, поэтому ответ: название остановки!",
-      "imagesQuestion": "images/tour1/1-5_V.png"
+      "imagesQuestion": "images/tour1/1-5_В.png"
     },
     {
       "id": "01_06",
@@ -117,7 +117,7 @@
       "commentCorrect": "Да! Сразу же видно, что генерал де Голль вылитый штопор, тем более, что он француз.",
       "commentWrong": "Это все смешно, но нет. Официально французы штопор называют «генерал де Голль».",
       "imagesQuestion": "images/tour1/1-14_V.jpg",
-      "imagesAnswer": "images/tour1/1-14_O1.jpg|images/tour1/1-14_O2.jpg"
+      "imagesAnswer": "images/tour1/1-14_O1.jpg|images/tour1/1-14_O2.png"
     },
     {
       "id": "01_15",
@@ -812,7 +812,7 @@
       "correctAnswer": "Гайка",
       "commentCorrect": "Совершенно верно! Поскольку слово «гаджет» в Советском Союзе было тогда почти неизвестно, то его заменили на «гайку»",
       "commentWrong": "Ну нет, это имя вряд ли подходит этому персонажу. А вот Гайке подходит.",
-      "imagesAnswer": "images/tour4/4-23_O.png"
+      "imagesAnswer": "images/tour4/4-23_V.png"
     },
     {
       "id": "04_24",

@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
 	// Your functions go here
-
+	//Cookies.remove('playerID');
 
 	$(".main-select select").select2({
 	    placeholder: "Ваш город",
@@ -726,7 +726,7 @@ $(document).ready(function(){
 	            }
 	          }
 	        );
-	       	var newDescription=","+prevDescription+"|tour№"+currentSegment+":"+tourCorrectAnswers+"|";
+	       	var newDescription=+prevDescription+"|tour№"+currentSegment+":"+tourCorrectAnswers+"|";
 	       	
 			$.ajax(
 	          {
@@ -749,6 +749,54 @@ $(document).ready(function(){
 	            }
 	          }
 	    	);
+	    	/*
+	    	if(startedSegment>0){
+	    		var prevTags;
+	    		$.ajax(
+		          {
+		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
+		            type: 'GET',
+		            contentType: false,
+		            async:false,
+		            headers: {
+		              "Authorization": "Basic " + btoa(api_key + ":x")
+		            },
+		            success: function(data, textStatus, jqXHR) {
+		            	prevTags=data.tags
+		            	
+		            },
+		            error: function(jqXHR, tranStatus) {
+		            	
+
+		            }
+		          }
+		        );
+		        console.log(prevTags);
+		        var newTags=prevTags.push("закончил онлайн игру");
+		        console.log(prevTags);
+		        $.ajax(
+		          {
+		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
+		            type: 'PUT',
+		          	contentType: "application/json",
+		          	async:false,
+		            //dataType: "json",
+		            //processData: false,
+		            data:JSON.stringify({"'tags'":[newTags]}),
+		            headers: {
+		              "Authorization": "Basic " + btoa(api_key + ":x")
+		            },
+		            success: function(data, textStatus, jqXHR) {
+		         
+		            },
+		            error: function(jqXHR, tranStatus) {
+
+
+		            }
+		          }
+		    	);
+	    	}
+	    	*/
 	    	fillSegment(startedSegment);
 	    	
 		} else{
