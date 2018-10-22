@@ -5,8 +5,8 @@
 $(document).ready(function(){
 
 	// Your functions go here
-	//Cookies.remove('playerID');
-
+	Cookies.remove('playerID');
+	Cookies.remove("playerResults");
 	$(".main-select select").select2({
 	    placeholder: "Ваш город",
 	    minimumResultsForSearch: Infinity
@@ -613,7 +613,7 @@ $(document).ready(function(){
         adaptiveHeight:true,
 	})
    	/* слайдер первого порядка*/
-   $(".test-wrap").on('afterChange', function(event, slick,nextSlide, currentSlide){
+   	$(".test-wrap").on('afterChange', function(event, slick,nextSlide, currentSlide){
 		$(this).find(".test-main-segment").each(function(){
 			if($(this).css("opacity")=="1"){
 				$(this).addClass("test-main-segment_started");
@@ -649,9 +649,84 @@ $(document).ready(function(){
 	}
 	
 	function fillRatingTable(playerID){
-		//console.log(playerID);
-	}
+		var finishedPlayersUrl='https://'+yourdomain+'.freshdesk.com/api/v2/search/tickets?query="tag:';
+		var finishedPlayersAdditionalUrl="'закончил онлайн игру'";
+		finishedPlayersUrl=finishedPlayersUrl.concat(finishedPlayersAdditionalUrl);
+		finishedPlayersUrl=finishedPlayersUrl.concat('"');
+		/* check nickname for uniqueness*/
+		var finishedPlayersJson;
+		$.ajax(
+          {
+            url: finishedPlayersUrl,
+            type: 'GET',
+            contentType: false,
+            async:false,
+            headers: {
+              "Authorization": "Basic " + btoa(api_key + ":x")
+            },
+            success: function(data, textStatus, jqXHR) {
+            	
+            	finishedPlayersJson=data;
+            	
+            },
+            error: function(jqXHR, tranStatus) {
+            	
 
+            }
+          }
+        );
+		var finishedPlayersArray=parseFinishedPlayersIntoArray(finishedPlayersJson);
+		console.log(finishedPlayersArray);
+	}
+	function parseFinishedPlayersIntoArray(finishedPlayersJson){
+		var array=[];
+		$.each(finishedPlayersJson.results,function(index,value){
+			var element={};
+			element.playerID=value.id;
+			element.playerResults=parseDescriptionTextForPlayerResults(value.description_text);
+			element.playerNickname=parseDescriptionTextForPlayerNickname(value.description_text);
+			//console.log(index);
+			//console.log(value);
+			//console.log("..................");
+			array.push(element);
+		})
+		return array
+	}
+	function parseDescriptionTextForPlayerNickname(description){
+		var nicknameTitle="Псевдоним: ";
+		var toursNickname=description.substring(description.indexOf("Псевдоним: ")+nicknameTitle.length,description.indexOf("|"));
+		return toursNickname;
+	}
+	function parseDescriptionTextForPlayerResults(description){
+		var arrayOfPoints=[];
+		var toursResults=description.substring(description.indexOf("tour№1:"));
+		
+		var tour1Results=toursResults.substring(toursResults.indexOf("tour№1:"),toursResults.indexOf("|",toursResults.indexOf("tour№1:")));
+		var tour1Points=parseInt(tour1Results.slice(-1));
+		arrayOfPoints.push(tour1Points);
+		
+		
+		var tour2Results=toursResults.substring(toursResults.indexOf("tour№2:"),toursResults.indexOf("|",toursResults.indexOf("tour№2:")));
+		var tour2Points=parseInt(tour2Results.slice(-1));
+		arrayOfPoints.push(tour2Points);
+		
+		
+		var tour3Results=toursResults.substring(toursResults.indexOf("tour№3:"),toursResults.indexOf("|",toursResults.indexOf("tour№3:")));
+		var tour3Points=parseInt(tour3Results.slice(-1));
+		arrayOfPoints.push(tour3Points);
+
+		
+		var tour4Results=toursResults.substring(toursResults.indexOf("tour№4:"),toursResults.indexOf("|",toursResults.indexOf("tour№4:")));
+		var tour4Points=parseInt(tour4Results.slice(-1));
+		arrayOfPoints.push(tour4Points);
+
+		var tour5Results=toursResults.substring(toursResults.indexOf("tour№5:"),toursResults.indexOf("|",toursResults.indexOf("tour№5:")));
+		var tour5Points=parseInt(tour5Results.slice(-1));
+		arrayOfPoints.push(tour5Points);
+		return arrayOfPoints;
+		
+	}
+	fillRatingTable(playerExists);
 	
 	$(".test-main-body-images-controls-unit_next").click(function(){
 		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
@@ -694,6 +769,7 @@ $(document).ready(function(){
 		}
 		
 	})
+	var resultsArray=['','','','',''];
 	$(".test-main-body-footer-results-button").click(function(){
 		var _this=$(this);
 		var questionIndex=_this.parents(".test-main-unit").index();
@@ -703,8 +779,10 @@ $(document).ready(function(){
 		var playerID=Cookies.get("playerID");
 		var tourCorrectAnswers=$(this).parents(".test-main-unit").find(".test-content-progress-unit_correct").length;
 		if(_this.parents(".test-main-unit").is(_this.parents(".test-main-segment").find(".test-main-unit").last())){
+			resultsArray[currentSegment-1]=tourCorrectAnswers;
 			_this.parents(".test-wrap").slick("slickNext");
 			Cookies.set('playerStartedTour',startedSegment);
+			Cookies.set('playerResults',resultsArray);
 			var prevDescription;
 			
 			$.ajax(
@@ -749,8 +827,8 @@ $(document).ready(function(){
 	            }
 	          }
 	    	);
-	    	/*
-	    	if(startedSegment>0){
+	    	
+	    	if(startedSegment>5){
 	    		var prevTags;
 	    		$.ajax(
 		          {
@@ -771,9 +849,7 @@ $(document).ready(function(){
 		            }
 		          }
 		        );
-		        console.log(prevTags);
 		        var newTags=prevTags.push("закончил онлайн игру");
-		        console.log(prevTags);
 		        $.ajax(
 		          {
 		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
@@ -782,7 +858,7 @@ $(document).ready(function(){
 		          	async:false,
 		            //dataType: "json",
 		            //processData: false,
-		            data:JSON.stringify({"'tags'":[newTags]}),
+		            data:JSON.stringify({"tags":prevTags}),
 		            headers: {
 		              "Authorization": "Basic " + btoa(api_key + ":x")
 		            },
@@ -795,9 +871,11 @@ $(document).ready(function(){
 		            }
 		          }
 		    	);
+		    	fillRatingTable(playerExists);
 	    	}
-	    	*/
-	    	fillSegment(startedSegment);
+	    	if(startedSegment<6){
+	    		fillSegment(startedSegment);
+	    	} 
 	    	
 		} else{
 			_this.parents(".test-main-segment").slick("slickNext");
