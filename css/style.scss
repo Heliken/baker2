@@ -1854,9 +1854,11 @@ input[type=submit], input[type=button] {
 			display: flex;
 			flex-wrap:wrap;
 			&-unit{
+				background-color: #fff;
 				width:calc(50% - 10px);
 				margin-bottom: 20px;
 				margin-right: 20px;
+
 				&:nth-child(2n){
 					margin-right: 0;
 				}
@@ -1886,7 +1888,7 @@ input[type=submit], input[type=button] {
 					}
 				}
 				&-header{
-					padding:20px 0 31px 0;
+					padding:20px 10px 31px 10px;
 					&-image{
 						width:124px;
 						margin:0 auto;
@@ -1903,6 +1905,7 @@ input[type=submit], input[type=button] {
 					}
 				}
 				&-body{
+					position: relative;
 					background-color: #fff;
 					color:$blue;
 					padding: 18px 53px 36px 37px;
@@ -1914,6 +1917,17 @@ input[type=submit], input[type=button] {
 						margin-bottom: 14px;
 						&:last-child{
 							margin-bottom: 0;
+						}
+						&:only-child{
+
+							display: block;
+							text-align: center;
+							
+							//opacity: 1;
+						}
+						&:not(:only-child):first-child{
+							//opacity: 0;
+							display: none;
 						}
 					}
 				}

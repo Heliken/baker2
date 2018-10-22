@@ -8,7 +8,7 @@ $(document).ready(function(){
 	//Cookies.remove('playerID');
 	//Cookies.remove("playerResults");
 	//Cookies.remove("playerResults");
-	//Cookies.set("playerID",790);
+	//Cookies.set("playerID",860);
 	//Cookies.set('playerStartedTour',6);
 	//Cookies.set("playerResults",['1','2','3','4','5']);
 	$(".main-select select").select2({
@@ -605,18 +605,7 @@ $(document).ready(function(){
         adaptiveHeight:true,
         //speed:200
 	})
-	$('.test-rating-table-wrap').slick({
-		fade:true,
-		arrows:false,
-		initialSlide:0,
-		infinite:false,
-		draggable:false,
-        accessibility:false,
-        scroll:false,
-        swipe:false,
-        touchMove:false,
-        adaptiveHeight:true,
-	})
+	
    	/* слайдер первого порядка*/
    	$(".test-wrap").on('afterChange', function(event, slick,nextSlide, currentSlide){
 		$(this).find(".test-main-segment").each(function(){
@@ -628,7 +617,7 @@ $(document).ready(function(){
 	$(".test-wrap").slick({
 		fade:true,
 		arrows:false,
-		initialSlide:0,
+		initialSlide:7,
 		infinite:false,
 		draggable:false,
         accessibility:false,
@@ -681,7 +670,193 @@ $(document).ready(function(){
           }
         );
 		var finishedPlayersArray=parseFinishedPlayersIntoArray(finishedPlayersJson);
-		console.log(finishedPlayersArray);
+		
+		$.each(finishedPlayersArray,function(index,value){
+			value.totalPoints=value.playerResults.reduce(function(prev, cur) { return prev + cur;})
+		})
+		
+		customArraySort(finishedPlayersArray,true);
+
+		var tour1BestResults=[];
+		$.each(finishedPlayersArray,function(index,value){
+			if(value.playerResults[0]==7){
+				tour1BestResults.push(value);
+			}
+			
+		})
+		tour1BestResults=shuffle(tour1BestResults);
+		tour1BestResults=tour1BestResults.slice(0,6);
+		customArraySort(tour1BestResults,false);
+		$.each(tour1BestResults,function(index,value){
+			var elem='<div class="test-rating-best-unit-body-unit"><div class="test-rating-best-unit-body-unit-title">'+value.playerNickname+'</div><div class="test-rating-best-unit-body-unit-points">'+value.totalPoints+'</div></div>';
+			$(".test-rating-best-unit_01 .test-rating-best-unit-body").append(elem);
+		})
+
+		var tour2BestResults=[];
+		$.each(finishedPlayersArray,function(index,value){
+			if(value.playerResults[1]==6){
+				tour2BestResults.push(value);
+			}
+			
+		})
+		tour2BestResults=shuffle(tour2BestResults);
+		tour2BestResults=tour2BestResults.slice(0,6);
+		customArraySort(tour2BestResults,false);
+		$.each(tour2BestResults,function(index,value){
+			var elem='<div class="test-rating-best-unit-body-unit"><div class="test-rating-best-unit-body-unit-title">'+value.playerNickname+'</div><div class="test-rating-best-unit-body-unit-points">'+value.totalPoints+'</div></div>';
+			$(".test-rating-best-unit_02 .test-rating-best-unit-body").append(elem);
+		})
+
+		var tour3BestResults=[];
+		$.each(finishedPlayersArray,function(index,value){
+			if(value.playerResults[2]==6){
+				tour3BestResults.push(value);
+			}
+			
+		})
+		tour3BestResults=shuffle(tour3BestResults);
+		tour3BestResults=tour3BestResults.slice(0,6);
+		customArraySort(tour3BestResults,false);
+		$.each(tour3BestResults,function(index,value){
+			var elem='<div class="test-rating-best-unit-body-unit"><div class="test-rating-best-unit-body-unit-title">'+value.playerNickname+'</div><div class="test-rating-best-unit-body-unit-points">'+value.totalPoints+'</div></div>';
+			$(".test-rating-best-unit_03 .test-rating-best-unit-body").append(elem);
+		})
+
+		var tour4BestResults=[];
+		$.each(finishedPlayersArray,function(index,value){
+			if(value.playerResults[3]==6){
+				tour4BestResults.push(value);
+			}
+			
+		})
+		tour4BestResults=shuffle(tour4BestResults);
+		tour4BestResults=tour4BestResults.slice(0,6);
+		customArraySort(tour4BestResults,false);
+		$.each(tour4BestResults,function(index,value){
+			var elem='<div class="test-rating-best-unit-body-unit"><div class="test-rating-best-unit-body-unit-title">'+value.playerNickname+'</div><div class="test-rating-best-unit-body-unit-points">'+value.totalPoints+'</div></div>';
+			$(".test-rating-best-unit_04 .test-rating-best-unit-body").append(elem);
+		})
+		var tour5BestResults=[];
+		$.each(finishedPlayersArray,function(index,value){
+			if(value.playerResults[4]==6){
+				tour5BestResults.push(value);
+			}
+			
+		})
+		tour5BestResults=shuffle(tour5BestResults);
+		tour5BestResults=tour5BestResults.slice(0,6);
+		customArraySort(tour5BestResults,false);
+		$.each(tour5BestResults,function(index,value){
+			var elem='<div class="test-rating-best-unit-body-unit"><div class="test-rating-best-unit-body-unit-title">'+value.playerNickname+'</div><div class="test-rating-best-unit-body-unit-points">'+value.totalPoints+'</div></div>';
+			$(".test-rating-best-unit_05 .test-rating-best-unit-body").append(elem);
+		})
+		var separatedArray=[];
+		var arrayDublicate=finishedPlayersArray;
+		
+		while(arrayDublicate.length) {
+    		separatedArray.push(arrayDublicate.splice(0,30));
+		}
+		
+		$.each(separatedArray,function(index,value){
+			var tableWrap=$(".test-rating-table-wrap");
+			var tableUnit="<div class='test-rating-table-unit'></div>";
+			tableWrap.append(tableUnit);
+			var tableUnitObject=tableWrap.find(".test-rating-table-unit").last();
+			tableUnitObject.append("<table></table>");
+			var tableUnitTableObject=tableUnitObject.find("table");
+			tableUnitTableObject.append("<tbody></tbody>");
+			var tableUnitTableBodyObject=tableUnitTableObject.find("tbody");
+			var smallArray=value;
+			$.each(smallArray,function(index,value){
+
+				var playerUnit='<tr><td>'+value.playerNickname+'</td><td></td><td>'+value.playerResults[0]+'</td><td>'+value.playerResults[1]+'</td><td>'+value.playerResults[2]+'</td><td>'+value.playerResults[3]+'</td><td>'+value.playerResults[4]+'</td><td>'+value.totalPoints+'</td><td>'+value.placeInRating+'</td>';
+				if(value.playerID==parseInt(Cookies.get("playerID"))){
+					$(".test-rating-table-player tbody").append(playerUnit);
+				}
+				tableUnitTableBodyObject.append(playerUnit);
+			})
+			$(".test-rating-table-numeration").each(function(){
+				
+				var numerationUnit="<div class='test-rating-table-numeration-unit'>"+parseInt(index+1)+"</div>";
+				$(this).append(numerationUnit);
+
+			})
+
+		})
+		$(".test-rating-table-numeration").each(function(){
+			$(this).find(".test-rating-table-numeration-unit").eq(0).addClass("test-rating-table-numeration-unit_active");
+		})
+		$('.test-rating-table-wrap').slick({
+			fade:true,
+			arrows:false,
+			initialSlide:0,
+			infinite:false,
+			draggable:false,
+	        accessibility:false,
+	        scroll:false,
+	        swipe:false,
+	        touchMove:false,
+	        adaptiveHeight:true,
+		})
+
+	}
+	
+	function customArraySort(playersArray,addPosition){
+		playersArray.sort(function (a, b) {
+		  if (a.totalPoints < b.totalPoints) {
+		    return 1;
+		  } else if (a.totalPoints > b.totalPoints) {
+		    return -1;
+		  } else{
+		  	if(a.playerResults[2]<b.playerResults[2]){
+			  	return 1;
+			} else if(a.playerResults[2]>b.playerResults[2]){
+			  	return -1;
+			} else {
+			  	if(a.playerResults[4]<b.playerResults[4]){
+				  	return 1;
+			  	} else if(a.playerResults[4]>b.playerResults[4]){
+			  		return -1;
+			  	} else{
+				  	if(a.playerResults[0]<b.playerResults[0]){
+					  	return 1;
+					} else if(a.playerResults[0]>b.playerResults[0]){
+					  	return -1;
+					} else{
+					  	if(a.playerResults[1]<b.playerResults[1]){
+					  	return 1;
+						} else if(a.playerResults[1]>b.playerResults[1]){
+						  	return -1;
+						} else{
+						  	if(a.playerResults[3]<b.playerResults[3]){
+							  	return 1;
+							} else if(a.playerResults[3]>b.playerResults[3]){
+							  	return -1;
+							} else{
+							  	return 0
+							}
+						}
+					}
+				}
+			}
+		 }
+		  
+		 // return 0;
+		});
+		if(addPosition){
+			addPositionToArray(playersArray);
+		}
+	}
+	function addPositionToArray(playersArray){
+		var dontChangeNextElem=false;
+		for(var i=0;i<playersArray.length;i++){
+			playersArray[i].placeInRating=i+1;
+		}
+		
+		
+
+		
+
 	}
 	function parseFinishedPlayersIntoArray(finishedPlayersJson){
 		var array=[];
@@ -728,7 +903,7 @@ $(document).ready(function(){
 		return arrayOfPoints;
 		
 	}
-	fillRatingTable(playerExists);
+	//fillRatingTable(playerExists);
 	
 	$(".test-main-body-images-controls-unit_next").click(function(){
 		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
@@ -895,14 +1070,15 @@ $(document).ready(function(){
 		
 		
 	})
-	$(".test-rating-table-numeration-unit").click(function(){
-		var index=$(this).index();
+	
+	$(document).on("click",".test-rating-table-numeration-unit",function() {
+        var index=$(this).index();
 		$(".test-rating-table-numeration-unit").removeClass("test-rating-table-numeration-unit_active");
 		$(".test-rating-table-numeration").each(function(){
 			$(this).find(".test-rating-table-numeration-unit").eq(index).addClass("test-rating-table-numeration-unit_active");
 		})
 		$(".test-rating-table-wrap").slick('slickGoTo', index ,false);
-	});
+    });
 	$(".register").click(function(){
 		var _this=$(this);
 		if(_this.parents(".main-games-unit").hasClass("main-games-unit_disabled")){
