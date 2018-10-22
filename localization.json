@@ -38,7 +38,7 @@
       "correctAnswer": "Название остановки",
       "commentCorrect": "О да. Это хоть странно, но можно взять на вооружение себе - название остановки в транспорте.",
       "commentWrong": "Смешно, но нет, здесь цель одна - не проспать, поэтому ответ: название остановки!",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-5_В.png"
+      "imagesQuestion": "images/tour1/1-5_V.png"
     },
     {
       "id": "01_06",
@@ -79,7 +79,7 @@
       "correctAnswer": "Мак",
       "commentCorrect": "Именно мак соответствует богу сна Гипносу, из него ведь и делают снотворные препараты.",
       "commentWrong": "Нет, это не полынь и не зверобой, это мак, из него ведь еще и снотворные препараты делают.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-10_O.jpg"
+      "imagesAnswer": "images/tour1/1-10_O.jpg"
     },
     {
       "id": "01_11",
@@ -88,8 +88,8 @@
       "correctAnswer": "Несмеяна",
       "commentCorrect": "Ну конечно! Гляньте, как все хотят ее рассмешить!",
       "commentWrong": "Не помните, как все кривлялись и пытались рассмешить Несмеяну? А это она!",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-11_V.jpg",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-11_O.jpg"
+      "imagesQuestion": "images/tour1/1-11_V.jpg",
+      "imagesAnswer": "images/tour1/1-11_O.jpg"
     },
     {
       "id": "01_12",
@@ -98,7 +98,7 @@
       "correctAnswer": "Золотой (желтый)",
       "commentCorrect": "Золотой, потому что двуглавый наш орел.",
       "commentWrong": "Ну нет же, наш двуглавый орел ведь не красный и пока не прозрачный, а золотой.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-12_O1.png|http://baker-hughes.mozgva.ru/images/tour1/1-12_O2.png|http://baker-hughes.mozgva.ru/images/tour1/1-12_O3.png"
+      "imagesAnswer": "images/tour1/1-12_O1.png|images/tour1/1-12_O2.png|images/tour1/1-12_O3.png"
     },
     {
       "id": "01_13",
@@ -107,7 +107,7 @@
       "correctAnswer": "Ледоруб",
       "commentCorrect": "Все верно: где альпинизм, там обязательно ледоруб!",
       "commentWrong": "Неверно, потому что это ледоруб, а без ведь него далеко (высоко) не уйдешь.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-13_О.png"
+      "imagesAnswer": "images/tour1/1-13_О.png"
     },
     {
       "id": "01_14",
@@ -116,8 +116,8 @@
       "correctAnswer": "Штопор",
       "commentCorrect": "Да! Сразу же видно, что генерал де Голль вылитый штопор, тем более, что он француз.",
       "commentWrong": "Это все смешно, но нет. Официально французы штопор называют «генерал де Голль».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-14_V.jpg",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-14_O1.jpg|http://baker-hughes.mozgva.ru/images/tour1/1-14_O2.jpg"
+      "imagesQuestion": "images/tour1/1-14_V.jpg",
+      "imagesAnswer": "images/tour1/1-14_O1.jpg|images/tour1/1-14_O2.jpg"
     },
     {
       "id": "01_15",
@@ -142,7 +142,7 @@
       "correctAnswer": "Львы",
       "commentCorrect": "Верно, это львы, по гривам определили?",
       "commentWrong": "Ну нет же, там ведь только львы-самцы, судя по гриве, на остальных можно было надеяться",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-17_V.png"
+      "imagesQuestion": "images/tour1/1-17_V.png"
     },
     {
       "id": "01_18",
@@ -151,8 +151,8 @@
       "correctAnswer": "«И ты, Брут!»",
       "commentCorrect": "Все верно: это Юлий Цезарь и его «Брут»",
       "commentWrong": "Неверно, потому что правильный ответ - «И ты, Брут!», и молвил это Юлий Цезарь.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-18_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-18_O.jpg"
+      "imagesQuestion": "images/tour1/1-18_V.png",
+      "imagesAnswer": "images/tour1/1-18_O.jpg"
     },
     {
       "id": "01_19",
@@ -161,7 +161,7 @@
       "correctAnswer": "Зонт",
       "commentCorrect": "Вы молодец! Помните эту эпопею до деталей, верно - это зонт",
       "commentWrong": "Совсем уж позабыли даму с багажом, а это нетленка! И не было там именно зонта",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-19_V1.jpg|http://baker-hughes.mozgva.ru/images/tour1/1-19_V2.jpg|http://baker-hughes.mozgva.ru/images/tour1/1-19_V3.jpg|http://baker-hughes.mozgva.ru/images/tour1/1-19_V4.jpg"
+      "imagesQuestion": "images/tour1/1-19_V1.jpg|images/tour1/1-19_V2.jpg|images/tour1/1-19_V3.jpg|images/tour1/1-19_V4.jpg"
     },
     {
       "id": "01_20",
@@ -178,7 +178,7 @@
       "correctAnswer": "«Mario»",
       "commentCorrect": "О, да! Именно Марио всю игру спасал свою невесту, перепрыгивая через грибы. Настоящий герой!",
       "commentWrong": "Неправильно. Именно Марио всю игру спасал свою невесту, перепрыгивая через грибы",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-21_O.png"
+      "imagesAnswer": "images/tour1/1-21_O.png"
     },
     {
       "id": "01_22",
@@ -187,7 +187,7 @@
       "correctAnswer": "Тень",
       "commentCorrect": "Ну конечно, тень: чем больше площадь тента, тем больше магазин, а значит, тем больший доход он получает от туристов.",
       "commentWrong": "Хорошая попытка, но правильный ответ - тень, потому что чем больше зонт, тем больше туристов в тени под ним, а это уже прибыль",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour1/1-22_V.png"
+      "imagesQuestion": "images/tour1/1-22_V.png"
     },
     {
       "id": "01_23",
@@ -204,7 +204,7 @@
       "correctAnswer": "Воздушный змей",
       "commentCorrect": "Это воздушный змей, ведь в него же и могла попасть молния. Вы правы!",
       "commentWrong": "Это неправильный ответ, потому что с помощью воздушного змея придумали громоотвод",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour1/1-24_О.png"
+      "imagesAnswer": "images/tour1/1-24_О.png"
     },
     {
       "id": "02_01",
@@ -213,7 +213,7 @@
       "correctAnswer": "Арфа",
       "commentCorrect": "Это правильный ответ! Арфа - политический символ Ирландии",
       "commentWrong": "Нет же, ну какие тарелки, скрипка и валторна! Только Арфа, только Ирландия.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-1_О.svg"
+      "imagesAnswer": "images/tour2/2-1_О.svg"
     },
     {
       "id": "02_02",
@@ -222,7 +222,7 @@
       "correctAnswer": "Элвис Пресли",
       "commentCorrect": "Все верно. Это Элвис наш Пресли!",
       "commentWrong": "Смешно, но нет - все это про Элвиса Пресли.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-2_O.jpg"
+      "imagesAnswer": "images/tour2/2-2_O.jpg"
     },
     {
       "id": "02_03",
@@ -247,7 +247,7 @@
       "correctAnswer": "Валерий Леонтьев",
       "commentCorrect": "Вы тайный фанат Леонтьева! Все песни узнали? Это «9 хризантем», «Маргарита» и «Полёт на дельтаплане»!",
       "commentWrong": "Не угадали, ну и ничего страшного, а это был Валерий Леонтьев.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-5_V1.png|http://baker-hughes.mozgva.ru/images/tour2/2-5_V2.png|http://baker-hughes.mozgva.ru/images/tour2/2-5_V3.png"
+      "imagesQuestion": "images/tour2/2-5_V1.png|images/tour2/2-5_V2.png|images/tour2/2-5_V3.png"
     },
     {
       "id": "02_06",
@@ -272,8 +272,8 @@
       "correctAnswer": "Маракасы",
       "commentCorrect": "Это верно, да и плоды дерева очевидно похожи на маракасы.",
       "commentWrong": "Нет, увы. Это маракасы, да и плоды дерева очевидно похожи на маракасы.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-8_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-8_О.png"
+      "imagesQuestion": "images/tour2/2-8_V.png",
+      "imagesAnswer": "images/tour2/2-8_О.png"
     },
     {
       "id": "02_09",
@@ -306,7 +306,7 @@
       "correctAnswer": "Виктор Цой",
       "commentCorrect": "Это Цой, потому что фильм «Игла». Верный ответ!",
       "commentWrong": "Нет, неправильный ответ. Это Цой, потому что фильм «Игла»",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-12_О.png"
+      "imagesAnswer": "images/tour2/2-12_О.png"
     },
     {
       "id": "02_13",
@@ -323,8 +323,8 @@
       "correctAnswer": "Pink Floyd",
       "commentCorrect": "Да! Это  Pink Floyd, ведь на плакате нарисованы обложки альбомов.",
       "commentWrong": "Нет, надо было всмотреться, ведь на плакате нарисованы обложки альбомов.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-14_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-14_О.png"
+      "imagesQuestion": "images/tour2/2-14_V.png",
+      "imagesAnswer": "images/tour2/2-14_О.png"
     },
     {
       "id": "02_15",
@@ -341,7 +341,7 @@
       "correctAnswer": "Modern Talking",
       "commentCorrect": "О, да! Кеша слушал Modern Talking и их «ё ма хат, ё ма соул»",
       "commentWrong": "Нет-нет, это была песня «ё ма хат, ё ма соул» и группа Модерн Токинг!",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-16_V.jpg"
+      "imagesQuestion": "images/tour2/2-16_V.jpg"
     },
     {
       "id": "02_17",
@@ -350,7 +350,7 @@
       "correctAnswer": "«ЧайФ»",
       "commentCorrect": "Верно! Этот атрибут – оранжевая каска строителей - отсылка к песне «Оранжевое настроение»",
       "commentWrong": "Увы! Этот атрибут – оранжевая каска строителей - отсылка к песне «Оранжевое настроение» группы «Чайф»",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour2/2-17_O.jpg"
+      "imagesAnswer": "images/tour2/2-17_O.jpg"
     },
     {
       "id": "02_18",
@@ -375,7 +375,7 @@
       "correctAnswer": "Вена",
       "commentCorrect": "Верно, это Вена. Штраус и Моцарт жили в Вене и сочиняли там свои произведения.",
       "commentWrong": "Увы, это не так. Штраус и Моцарт жили в Вене и сочиняли там свои произведения.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-20_V1.jpg|http://baker-hughes.mozgva.ru/images/tour2/2-20_V2.jpg"
+      "imagesQuestion": "images/tour2/2-20_V1.jpg|images/tour2/2-20_V2.jpg"
     },
     {
       "id": "02_21",
@@ -408,7 +408,7 @@
       "correctAnswer": "«Руки Вверх»",
       "commentCorrect": "Вы знали! Все верно, это «Руки вверх»",
       "commentWrong": "Это «Руки Вверх», вы не угадали, но это ничего, подумаешь",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour2/2-24_V.png"
+      "imagesQuestion": "images/tour2/2-24_V.png"
     },
     {
       "id": "03_01",
@@ -417,8 +417,8 @@
       "correctAnswer": "Кровь",
       "commentCorrect": "Именно так. Оригинальное название киноленты «There Will Be Blood».",
       "commentWrong": "Увы, но нет. Оригинальное название киноленты «There Will Be Blood».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour3/3-1_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-1_O.png"
+      "imagesQuestion": "images/tour3/3-1_V.png",
+      "imagesAnswer": "images/tour3/3-1_O.png"
     },
     {
       "id": "03_02",
@@ -459,7 +459,7 @@
       "correctAnswer": "Керосиновая лампа",
       "commentCorrect": "Именно так. Керосиновая лампа очень быстро стала обычным предметом быта, что привело к повышению спроса на нефть.",
       "commentWrong": "Нет, вовсе не это изобретение подняло спрос на нефть. Речь идет о керосиновой лампе.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-6_O.jpg"
+      "imagesAnswer": "images/tour3/3-6_O.jpg"
     },
     {
       "id": "03_07",
@@ -492,7 +492,7 @@
       "correctAnswer": "Нобель",
       "commentCorrect": "Абсолютно точно.Именно Альфред Нобель был одним из спонсоров начала нефтедобычи России.",
       "commentWrong": "Боюсь, что не так. Речь идет о Альфреде Нобеле, а работа с нитроглицерином привела к появлению динамита.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-10_O.jpg"
+      "imagesAnswer": "images/tour3/3-10_O.jpg"
     },
     {
       "id": "03_11",
@@ -509,8 +509,8 @@
       "correctAnswer": "OPEC",
       "commentCorrect": "Совершенно верно. Можно было заметить, что логотип представляет собой стилизованную надпись OPEC.",
       "commentWrong": "Нет, это логотип другой организации - OPEC. Можно было заметить, что логотип представляет собой стилизованную надпись OPEC.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour3/3-12_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-12_O.png"
+      "imagesQuestion": "images/tour3/3-12_V.png",
+      "imagesAnswer": "images/tour3/3-12_O.png"
     },
     {
       "id": "03_13",
@@ -535,7 +535,7 @@
       "correctAnswer": "«Черный квадрат»",
       "commentCorrect": "Это верно. Черный квадрат из всех перечисленных картин наиболее близок к тому, чтобы напоминать богатое местонарождение нефти.",
       "commentWrong": "Едва ли эта картина похожа или связана с месторождения нефти. А вот Черный квадрат как раз!",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-16_V.png"
+      "imagesAnswer": "images/tour3/3-16_V.png"
     },
     {
       "id": "03_17",
@@ -560,7 +560,7 @@
       "correctAnswer": "Ненецкий автономный округ",
       "commentCorrect": "Это правильный ответ.",
       "commentWrong": "Увы, но это туристический логотип Ненецкого автономного округа.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour3/3-19_V.png"
+      "imagesQuestion": "images/tour3/3-19_V.png"
     },
     {
       "id": "03_20",
@@ -569,7 +569,7 @@
       "correctAnswer": "Бахрейн",
       "commentCorrect": "Все верно! Ведь из всех стран только в Бахрейне валюта - динар",
       "commentWrong": "Нет, увы. Это Бахрейн",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour3/3-20_V.jpg"
+      "imagesQuestion": "images/tour3/3-20_V.jpg"
     },
     {
       "id": "03_21",
@@ -594,8 +594,8 @@
       "correctAnswer": "Кольская",
       "commentCorrect": "Безусловно это Кольская скважина, самая глубокая из существующих - 12262 м",
       "commentWrong": "Неправильный ответ, потому что это  Кольская скважина, самая глубокая из существующих - 12262 м",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour3/3-23_V.jpg",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour3/3-23_O.jpg"
+      "imagesQuestion": "images/tour3/3-23_V.jpg",
+      "imagesAnswer": "images/tour3/3-23_O.jpg"
     },
     {
       "id": "03_24",
@@ -612,7 +612,7 @@
       "correctAnswer": "$5",
       "commentCorrect": "И это правильный ответ! Коктейль для этой роковой девушки стоил ровно пять долларов.",
       "commentWrong": "Близко, но нет - коктейль стоил ровно пять долларов.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-1_V.jpg"
+      "imagesQuestion": "images/tour4/4-1_V.jpg"
     },
     {
       "id": "04_02",
@@ -621,8 +621,8 @@
       "correctAnswer": "«Красотка»",
       "commentCorrect": "Все верно. Прототипом этой красотки-куклы послужила героиня фильма «Красотка»!",
       "commentWrong": "Нет, неправильно. Посмотрите же какая эта кукла красотка. Ее прототипом послужила героиня фильма «Красотка».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-2_V.jpg",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-2_О.jpg"
+      "imagesQuestion": "images/tour4/4-2_V.jpg",
+      "imagesAnswer": "images/tour4/4-2_О.jpg"
     },
     {
       "id": "04_03",
@@ -631,7 +631,7 @@
       "correctAnswer": "«Миллионер из трущоб»",
       "commentCorrect": "И вы выиграли миллион! К сожалению, нет, но ответ вы дали правильный - это «Миллионер из трущоб».",
       "commentWrong": "Нет, неправильно. Все эти вопросы были заданы одному индийскому бедняку в фильме «Миллионер из трущоб».",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-3_О.jpg"
+      "imagesAnswer": "images/tour4/4-3_О.jpg"
     },
     {
       "id": "04_04",
@@ -648,8 +648,8 @@
       "correctAnswer": "Брижит Бардо",
       "commentCorrect": "Совершенно верно! Эту оригинальную прическу ввела Брижит Бардо",
       "commentWrong": "Неправильно. За введение в моду этой прически ответственна лично Брижит Бардо",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-5_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-5_O.png"
+      "imagesQuestion": "images/tour4/4-5_V.png",
+      "imagesAnswer": "images/tour4/4-5_O.png"
     },
     {
       "id": "04_06",
@@ -658,7 +658,7 @@
       "correctAnswer": "«Человек-амфибия»",
       "commentCorrect": "Правильно. Все это требовалось, чтобы создать образ из фильма «Человек-амфибия».",
       "commentWrong": "Мимо. Все это требовалось, чтобы создать образ из фильма «Человек-амфибия».",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-6_O.png"
+      "imagesAnswer": "images/tour4/4-6_O.png"
     },
     {
       "id": "04_07",
@@ -667,7 +667,7 @@
       "correctAnswer": "Зеленый",
       "commentCorrect": "Абсолютно верно. Речь идет о маленьком зеленом джедае из серии фильмов «Звездные войны».",
       "commentWrong": "Неправильно. Магистр Йода из «Звездных войн», а именно о нем и идет речь, зеленого цвета.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-7_O.png"
+      "imagesAnswer": "images/tour4/4-7_O.png"
     },
     {
       "id": "04_08",
@@ -676,8 +676,8 @@
       "correctAnswer": "«Рокки»",
       "commentCorrect": "Совершенное верно! Все это атрибутика долгого пути к успеху Рокки Бальбоа.",
       "commentWrong": "Увы, но это неверный ответ. Все эти вещи связаны с историей успеха Рокки Бальбоа из фильма «Рокки».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-8_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-8_O.png"
+      "imagesQuestion": "images/tour4/4-8_V.png",
+      "imagesAnswer": "images/tour4/4-8_O.png"
     },
     {
       "id": "04_09",
@@ -686,8 +686,8 @@
       "correctAnswer": "«Один дома»",
       "commentCorrect": "Верно. Именно в этом доме несчастные грабители провели худший день в своей жизни.",
       "commentWrong": "Неплохая попытка, но нет. Это дом из фильма «Один дома»",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-9_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-9_O.png"
+      "imagesQuestion": "images/tour4/4-9_V.png",
+      "imagesAnswer": "images/tour4/4-9_O.png"
     },
     {
       "id": "04_10",
@@ -696,8 +696,8 @@
       "correctAnswer": "«Во все тяжкие»",
       "commentCorrect": "Правильно! Трудно не узнать киллеров из сериала «Во все тяжкие».",
       "commentWrong": "К сожалению, это неправильный ответ. Симпсоны в своем стиле спародировали парочку киллеров из сериала «Во все тяжкие»",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-10_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-10_O.png"
+      "imagesQuestion": "images/tour4/4-10_V.png",
+      "imagesAnswer": "images/tour4/4-10_O.png"
     },
     {
       "id": "04_11",
@@ -706,7 +706,7 @@
       "correctAnswer": "Мопс",
       "commentCorrect": "Все верно! Этот специальный агент и охотник за инопланетянами был не кем иным, как мопсом.",
       "commentWrong": "Неужели вы забыли столь харизматичного персонажа? Знаменитый спецагент Фрэнк был мопсом.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-11_O.png"
+      "imagesAnswer": "images/tour4/4-11_O.png"
     },
     {
       "id": "04_12",
@@ -715,7 +715,7 @@
       "correctAnswer": "Клеопатра",
       "commentCorrect": "Совершенно верно! Все эти красивые актрисы в разное время удостоились чести сыграть идеал древней красоты - Клеопатру.",
       "commentWrong": "К сожалению, не так. Все это достойные роли, но эти актрисы сыграли другой типаж: королеву красоты Клеопатру.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-12_O.png"
+      "imagesAnswer": "images/tour4/4-12_O.png"
     },
     {
       "id": "04_13",
@@ -724,7 +724,7 @@
       "correctAnswer": "«Друзья»",
       "commentCorrect": "И это правильный ответ! Возможно, в параллельной вселенной именно так и назвали сериал «Друзья».",
       "commentWrong": "Увы, но нет. Это были варианты названий для сериала «Друзья».",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-13_O.png"
+      "imagesAnswer": "images/tour4/4-13_O.png"
     },
     {
       "id": "04_14",
@@ -733,7 +733,7 @@
       "correctAnswer": "Микеланджело",
       "commentCorrect": "Все верно. Это не кто иной, как Микеланджело",
       "commentWrong": "Хорошая попытка, но нет. Речь идет о другом «художнике», а именно о Микеланджело.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-14_V.png"
+      "imagesQuestion": "images/tour4/4-14_V.png"
     },
     {
       "id": "04_15",
@@ -742,7 +742,7 @@
       "correctAnswer": "Индиана Джонс",
       "commentCorrect": "Разумеется. Эти слова принадлежат нестареющему Гаррисону Форду.",
       "commentWrong": "Неверно, ведь эти слова принадлежат Гаррисону Форду, за которым надолго закрепился образ Индианы Джонса.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-15_O.png"
+      "imagesAnswer": "images/tour4/4-15_O.png"
     },
     {
       "id": "04_16",
@@ -751,7 +751,7 @@
       "correctAnswer": "«Мир дикого запада»",
       "commentCorrect": "Верно, всех правильно вычислили! И «Мир дикого запада» лишний",
       "commentWrong": "Нет, лишний там оказался сериал «Мир дикого запада».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-16_V1.png|http://baker-hughes.mozgva.ru/images/tour4/4-16_V2.png|http://baker-hughes.mozgva.ru/images/tour4/4-16_V3.png"
+      "imagesQuestion": "images/tour4/4-16_V1.png|images/tour4/4-16_V2.png|images/tour4/4-16_V3.png"
     },
     {
       "id": "04_17",
@@ -760,7 +760,7 @@
       "correctAnswer": "«Москва слезам не верит»",
       "commentCorrect": "Совершенно верно. Это теплое приветствие прямиком из фильма «Москва слезам не верит».",
       "commentWrong": "Очень жаль, но ответ неверный. Это приветствие взято из фильма «Москва слезам не верит».",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-17_O.png"
+      "imagesAnswer": "images/tour4/4-17_O.png"
     },
     {
       "id": "04_18",
@@ -769,7 +769,7 @@
       "correctAnswer": "Сиамская",
       "commentCorrect": "Совершенно верно! Этот милый котенок со странным именем был сиамской породы.",
       "commentWrong": "Увы, но котенок по имени Гав сиамской породы.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-18_O.png"
+      "imagesAnswer": "images/tour4/4-18_O.png"
     },
     {
       "id": "04_19",
@@ -786,7 +786,7 @@
       "correctAnswer": "«Зеленая Миля»",
       "commentCorrect": "Конечно! Этот сообразительный и живучий мышонок является персонажем фильма «Зеленая миля».",
       "commentWrong": "К сожалению, это неправильный ответ. Этот конкретный мышонок скрашивал быт обитателей тюрьмы в фильме «Зеленая Миля».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-20_V.bmp"
+      "imagesQuestion": "images/tour4/4-20_V.bmp"
     },
     {
       "id": "04_21",
@@ -795,7 +795,7 @@
       "correctAnswer": "Лос-Анджелес",
       "commentCorrect": "Именно так. Герои знаменитого сериала держали путь в Лос-Анджелес.",
       "commentWrong": "Нет, неправильно, речь идет о сериале «Остаться в живых», а его герои держали путь в Лос-Анджелес.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-21_V.png"
+      "imagesQuestion": "images/tour4/4-21_V.png"
     },
     {
       "id": "04_22",
@@ -812,7 +812,7 @@
       "correctAnswer": "Гайка",
       "commentCorrect": "Совершенно верно! Поскольку слово «гаджет» в Советском Союзе было тогда почти неизвестно, то его заменили на «гайку»",
       "commentWrong": "Ну нет, это имя вряд ли подходит этому персонажу. А вот Гайке подходит.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-23_O.png"
+      "imagesAnswer": "images/tour4/4-23_O.png"
     },
     {
       "id": "04_24",
@@ -821,8 +821,8 @@
       "correctAnswer": "«Побег из Шоушенка»",
       "commentCorrect": "Правильно, на постере изображен счастливец, сбежавший из Шоушенка.",
       "commentWrong": "Неверно, ведь на постере изображен не кто иной, как сбежавший из Шоушенка счастливец.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour4/4-24_V.png",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour4/4-24_O.png"
+      "imagesQuestion": "images/tour4/4-24_V.png",
+      "imagesAnswer": "images/tour4/4-24_O.png"
     },
     {
       "id": "05_01",
@@ -887,7 +887,7 @@
       "correctAnswer": "Верблюд",
       "commentCorrect": "Все правильно, внимательный взгляд на картинку позволяет легко определить, что это верблюд.",
       "commentWrong": "Это неверно. Взгляните внимательно на картинку, ведь изображенная на ней поза отсылает нас именно к верблюду.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour5/5-8_V.png\n"
+      "imagesQuestion": "images/tour5/5-8_V.png\n"
     },
     {
       "id": "05_09",
@@ -896,7 +896,7 @@
       "correctAnswer": "Шагал",
       "commentCorrect": "И действительно, речь идет о Марке Шагале. Сам стиль Дудла дает точную наводку на творчество этого художника.",
       "commentWrong": "Что ж, кажется, узнать стиль Марка Шагала не самая простая задача, ведь именно на творчество данного художника и ссылает этот дудл.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour5/5-9_V.png\n"
+      "imagesQuestion": "images/tour5/5-9_V.png\n"
     },
     {
       "id": "05_10",
@@ -937,8 +937,8 @@
       "correctAnswer": "«Maxim»",
       "commentCorrect": "Совершенно верно. Подсказкой здесь служила фотография знаменитого русского писателя Максима Горького.",
       "commentWrong": "Увы, но нет. Стоило обратить внимание на подсказку, ведь на обложке журнала красуется лицо знаменитого русского писателя Максима Горького.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour5/5-14_V.png\n",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour5/5-14_O.jpg\n"
+      "imagesQuestion": "images/tour5/5-14_V.png\n",
+      "imagesAnswer": "images/tour5/5-14_O.jpg\n"
     },
     {
       "id": "05_15",
@@ -947,7 +947,7 @@
       "correctAnswer": "Четыре сезона",
       "commentCorrect": "Совершенно верно. Это пицца «Четыре сезона».",
       "commentWrong": "Видимо, вы не большой любитель пиццы, ведь на фото изображена пицца «Четыре сезона».",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour5/5-15_V.png\n"
+      "imagesQuestion": "images/tour5/5-15_V.png\n"
     },
     {
       "id": "05_16",
@@ -964,7 +964,7 @@
       "correctAnswer": "Летучая мышь",
       "commentCorrect": "Совершенно верно. Логотип«Bacardi» украшает именно летучая мышь.",
       "commentWrong": "Вероятно, вы не слишком большие ценители спиртных напитков, потому что в противном случае вы бы, скорее всего, знали, что логотип «Bacardi» украшает летучая мышь.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour5/5-17_O.jpg\n"
+      "imagesAnswer": "images/tour5/5-17_O.jpg\n"
     },
     {
       "id": "05_18",
@@ -989,7 +989,7 @@
       "correctAnswer": "Камбоджа",
       "commentCorrect": "Правильно. Это храм Ангкор, построенный в Камбодже в первой половине XII века.",
       "commentWrong": "Нет, мимо, ведь на фото изображен храм Ангкор, построенный в Камбодже в первой половине XII века.",
-      "imagesQuestion": "http://baker-hughes.mozgva.ru/images/tour5/5-20_V.png\n"
+      "imagesQuestion": "images/tour5/5-20_V.png\n"
     },
     {
       "id": "05_21",
@@ -1006,7 +1006,7 @@
       "correctAnswer": "Конь",
       "commentCorrect": "Абсолютно точно. Дипломатия всегда требует сложных и тонких решений - «ходов конем».",
       "commentWrong": "Увы, но нет. Дипломатия требует сложных и тонких решений - «ходов конем».",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour5/5-22_O.jpg\n"
+      "imagesAnswer": "images/tour5/5-22_O.jpg\n"
     },
     {
       "id": "05_23",
@@ -1015,6 +1015,6 @@
       "correctAnswer": "Воробей",
       "commentCorrect": "Совершенно точно. Ваша память вас не подвела, и вы дали правильный ответ.",
       "commentWrong": "Мимо. Зверей от тирании ужасного Тараканища избавил воробей.",
-      "imagesAnswer": "http://baker-hughes.mozgva.ru/images/tour5/5-23_O.jpg\n"
+      "imagesAnswer": "images/tour5/5-23_O.jpg\n"
     }
 ]
