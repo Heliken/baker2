@@ -1,3 +1,6 @@
+
+
+
 /* Trigger when page is ready */
 $(document).ready(function(){
 
@@ -171,34 +174,7 @@ $(document).ready(function(){
 	})
 	
     
-	function checkAmountOfPlayersStartedGame(){
-		var amountOfPlayersStartedGame=0;
-		var amountOfPlayersUrl='https://'+yourdomain+'.freshdesk.com/api/v2/search/tickets?query="tag:';
-		var amountOfPlayersAdditionalUrl="'начал онлайн игру'";
-	 	amountOfPlayersUrl=amountOfPlayersUrl.concat(amountOfPlayersAdditionalUrl);
-	 	amountOfPlayersUrl=amountOfPlayersUrl.concat('"');
-
-		$.ajax(
-	      {
-	        url: amountOfPlayersUrl,
-	        type: 'GET',
-	        contentType: false,
-	        async: false,
-	        headers: {
-	          "Authorization": "Basic " + btoa(api_key + ":x")
-	        },
-	        success: function(data, textStatus, jqXHR) {
-	        	amountOfPlayersStartedGame=amountOfPlayersStartedGame+data.total;
-	        },
-	        error: function(jqXHR, tranStatus) {
-
-
-	        }
-	      }
-	    );
-	    
-		return amountOfPlayersStartedGame
-	}
+	
 	
     
 	$(".test-register .button").click(function(){
@@ -227,9 +203,9 @@ $(document).ready(function(){
 	            },
 	            success: function(data, textStatus, jqXHR) {
 	            	if(data.total>0){
-	            		console.log(1);
 	            		nicknameIsUnique=false;
 	            		proceedUniqueData();
+
 	            	} else{
 	            		registerOnlineGameUserUser();
 	            	}
@@ -252,8 +228,7 @@ $(document).ready(function(){
 	        }
 	        function registerOnlineGameUserUser(){
 	        	var formdata = new FormData();
-	        	var amountOfPlayersStartedGame=checkAmountOfPlayersStartedGame();
-	        	var playerID=amountOfPlayersStartedGame+1;
+	        	
 	        	formdata.append('name', nameVal);
 		        formdata.append('phone', phoneVal);
 		        //formdata.append('custom_fields[department]','IT');
@@ -263,7 +238,7 @@ $(document).ready(function(){
 		       	phoneVal=phoneVal.split("-").join("");
 		       	formdata.append('priority', '1');
         		formdata.append('status', '2');
-        		formdata.append('description', 'Начал онлайн игру. Имя: '+nameVal+' , Телефон: '+phoneVal+' , Псевдоним: '+nicknameVal+', ID пользователя:'+playerID);
+        		formdata.append('description', 'Начал онлайн игру. Имя: '+nameVal+' , Телефон: '+phoneVal+' , Псевдоним: '+nicknameVal);
  				formdata.append('subject',"Старт онлайн игры , Baker Hughes");
  				var arr = ['начал онлайн игру',nicknameVal];
 				for (var i = 0; i < arr.length; i++) {
@@ -281,6 +256,10 @@ $(document).ready(function(){
 		            },
 		            data: formdata,
 		            success: function(data, textStatus, jqXHR) {
+		            	Cookies.set('playerNickname',nicknameVal);
+		            	Cookies.set('playerID',data.id);
+		            	Cookies.set('playerStartedTour',1);
+		            	
 						name.val("");
 						phone.val("");
 						nickname.val("");
@@ -288,7 +267,7 @@ $(document).ready(function(){
 						$(".popup_finish").addClass("popup_active");
 						setTimeout(function(){
 							$(".popup_finish").removeClass("popup_active");
-						},4000);
+						},1000);
 						$(".test-wrap").slick("slickNext");
 		            },
 		            error: function(jqXHR, tranStatus) {
@@ -304,17 +283,34 @@ $(document).ready(function(){
 
 	})
 	var questions;
+	var questionsTour1=[];
+	var questionsTour2=[];
+	var questionsTour3=[];
+	var questionsTour4=[];
+	var questionsTour5=[];
+	$.ajaxSetup({
+		async: false
+	});
+	
 
+	
 	$.getJSON( "localization.json", function( json ) {
     	questions=json;
-
+    	
 	}).done(function() {
-		executeQuestionParsing(questions[0]);
-		executeQuestionParsing(questions[1]);
+		separateQuestions(questions);
+		fillSegment(1);
 	});
-
+	
+	function separateQuestions(questionsList){
+		$.each(questionsList, function(index, val) { 
+  			executeQuestionParsing(val);
+		});
+	}
 	function executeQuestionParsing(questionObject){
+
 		var id=questionObject.id;
+		var tourNumber=parseInt(id.charAt(1));
 		var answers=convertStringToArray(questionObject.answers);
 
 		var text=questionObject.text;
@@ -331,19 +327,47 @@ $(document).ready(function(){
 		} else{
 			imagesAnswer=[];
 		}
-		/*
-		console.log(id);
-		console.log(answers);
-		console.log(text);
-		console.log(correctAnswer);
-		console.log(commentCorrect);
-		console.log(commentWrong);
-		console.log(imagesQuestion);
-		console.log(imagesAnswer);
-		console.log("-----------------------------");
-		*/
-	}
+		var questionObject={
+			"id":id,
+			"answers":answers,
+			"text":text,
+			"correctAnswer":correctAnswer,
+			"commentCorrect":commentCorrect,
+			"commentWrong":commentWrong,
+			"imagesQuestion":imagesQuestion,
+			"imagesAnswer":imagesAnswer
+		}
+		
+		switch(tourNumber){
+			case 1:
+			questionsTour1.push(questionObject);
+			break;
+			case 2:
+			questionsTour2.push(questionObject);
+			break;
+			case 3:
+			questionsTour3.push(questionObject);
+			break;
+			case 4:
+			questionsTour4.push(questionObject);
+			break;
+			case 5:
+			questionsTour5.push(questionObject);
+			break;
+			default:
+			break;
 
+
+
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
 	function convertStringToArray(string){
 		var string=string;
     	//string=string.replace(/"/g, '');
@@ -356,7 +380,114 @@ $(document).ready(function(){
 		return array;
 	}
 	
-    /* слайдер четвертого порядка*/
+	function shuffle(array) {
+
+	  var currentIndex = array.length;
+	  // While there remain elements to shuffle...
+	  while (0 !== currentIndex) {
+	  	
+	    // Pick a remaining element...
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
+
+	    // And swap it with the current element.
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+	  }
+
+	  return array;
+}
+	function fillSegment(segmentNumber){
+		var arrayToChooseFrom;
+		switch(parseInt(segmentNumber)){
+			case 1:
+			arrayToChooseFrom=questionsTour1;
+			break;
+			case 2:
+			arrayToChooseFrom=questionsTour2;
+			break;
+			case 3:
+			arrayToChooseFrom=questionsTour3;
+			break;
+			case 4:
+			arrayToChooseFrom=questionsTour4;
+			break;
+			case 5:
+			arrayToChooseFrom=questionsTour5;
+			break;
+			default:
+			break;
+		}
+
+		arrayToChooseFrom=shuffle(arrayToChooseFrom);
+		var sixQuestions=arrayToChooseFrom.slice(0,6);
+		var segmentToFillClass=".test-main-segment_0"+segmentNumber;
+		var segmentToFill=$(segmentToFillClass);
+		$.each(sixQuestions, function( index, value ) {
+			
+
+			var testMainUnit=segmentToFill.find(".test-main-unit").eq(index);
+			var testMainUnitText=testMainUnit.find(".test-main-body-text");
+			var testMainUnitCorrectComment=testMainUnit.find(".test-main-body-footer-results-info-text-inner_correct");
+			var testMainUnitWrongComment=testMainUnit.find(".test-main-body-footer-results-info-text-inner_wrong");
+			var imagesQuestion=value.imagesQuestion;
+			var imagesAnswer=value.imagesAnswer;
+			var answers=value.answers;
+			var correctAnswer=value.correctAnswer;
+			$.each(answers, function( index, value ) {
+				if(value.charAt(0)==" "){
+					value=value.substring(1);
+				}
+				if(value.charAt(value.length-1)==" "){
+					value=value.slice(0, -1);
+				}
+				testMainUnit.find(".test-main-body-footer-answers-unit").eq(index).html(value);
+				if(value==correctAnswer){
+					testMainUnit.find(".test-main-body-footer-answers-unit").eq(index).addClass("test-main-body-footer-answers-unit_correct");
+				}
+			})
+			testMainUnitText.html(value.text);
+			testMainUnitCorrectComment.html(value.commentCorrect);
+			testMainUnitWrongComment.html(value.commentWrong);
+			var imagesQuestionWrap=testMainUnit.find(".test-main-body-images-wrap_beforeAnswer");
+			var imagesAnswerWrap=testMainUnit.find(".test-main-body-images-wrap_afterAnswer");
+			var imageFiller='<img class="filler" src="images/main-question-filler.png" alt="">';
+			imagesQuestionWrap.html("");
+			imagesAnswerWrap.html("");
+			if(imagesQuestion.length==0&&imagesAnswer.length>0){
+				imagesQuestionWrap.append(imageFiller);
+				$.each(imagesAnswer, function( index, value ) {
+					var imgToAppend='<img src='+value+' alt="">';
+					imagesAnswerWrap.append(imgToAppend);
+				})
+			}else if(imagesQuestion.length>0&&imagesAnswer.length==0){
+				$.each(imagesQuestion, function( index, value ) {
+					var imgToAppend='<img src='+value+' alt="">';
+					imagesQuestionWrap.append(imgToAppend);
+				})
+				$.each(imagesQuestion, function( index, value ) {
+					var imgToAppend='<img src='+value+' alt="">';
+					imagesAnswerWrap.append(imgToAppend);
+				})
+			}else if(imagesQuestion.length>0&&imagesAnswer.length>0){
+				$.each(imagesQuestion, function( index, value ) {
+					var imgToAppend='<img src='+value+' alt="">';
+					imagesQuestionWrap.append(imgToAppend);
+				})
+				$.each(imagesAnswer, function( index, value ) {
+					var imgToAppend='<img src='+value+' alt="">';
+					imagesAnswerWrap.append(imgToAppend);
+				})
+			}else if(imagesQuestion.length==0&&imagesAnswer.length==0){
+				testMainUnit.addClass("test-main-unit_noImage");
+			}
+
+		})
+	}
+
+	
+    /* слайдер четвертого порядка */
     $(".test-main-body-images-wrap").on('init', function(event,slick){
     	event.stopPropagation()
     })
@@ -439,18 +570,14 @@ $(document).ready(function(){
         speed:200
 	});
 
-
+	
 	/* слайдер второго порядка*/
 
 	
 	$(".test-main-segment").on('afterChange', function(event, slick, currentSlide){
-		//console.log(1);
-		//$(".test-wrap").find(".slick-slide").height("auto");
 		$(".test-wrap").children(".slick-list").children(".slick-track").children(".slick-slide").height("auto");
 		$(".test-wrap").slick("setOption", '', '', true);
 		$(this).find(".test-main-unit").eq(currentSlide-1).addClass("test-main-unit_current");
-		//console.log(currentSlide);
-		//console.log($(this).find(".test-main-unit").eq(currentSlide));
 	})
 	$(".test-main-segment").slick({
 		fade:true,
@@ -465,6 +592,18 @@ $(document).ready(function(){
         adaptiveHeight:true,
         //speed:200
 	})
+	$('.test-rating-table-wrap').slick({
+		fade:true,
+		arrows:false,
+		initialSlide:0,
+		infinite:false,
+		draggable:false,
+        accessibility:false,
+        scroll:false,
+        swipe:false,
+        touchMove:false,
+        adaptiveHeight:true,
+	})
    	/* слайдер первого порядка*/
    $(".test-wrap").on('afterChange', function(event, slick,nextSlide, currentSlide){
 		$(this).find(".test-main-segment").each(function(){
@@ -476,7 +615,7 @@ $(document).ready(function(){
 	$(".test-wrap").slick({
 		fade:true,
 		arrows:false,
-		initialSlide:2,
+		initialSlide:1,
 		infinite:false,
 		draggable:false,
         accessibility:false,
@@ -487,9 +626,21 @@ $(document).ready(function(){
         speed:200
 	});
 	
+	var playerExists=Cookies.get("playerID");
 	
+	if(playerExists){
+		var playerStartedTour=parseInt(Cookies.get('playerStartedTour'));
+		$(".test-wrap").slick('slickGoTo',playerStartedTour+1,true);
+		if(playerStartedTour<6){
+			fillSegment(playerStartedTour);
+		} else{
+			fillRatingTable(playerExists);
+		}
+	}
 	
-	
+	function fillRatingTable(playerID){
+		console.log(playerID);
+	}
 
 	
 	$(".test-main-body-images-controls-unit_next").click(function(){
@@ -510,6 +661,7 @@ $(document).ready(function(){
 			}
 		})
 	})
+
 	$(".test-main-body-footer-answers-unit").click(function(){
 		var _this=$(this);
 		var answer=_this.html();
@@ -534,13 +686,79 @@ $(document).ready(function(){
 	})
 	$(".test-main-body-footer-results-button").click(function(){
 		var _this=$(this);
-		_this.parents(".test-main-segment").slick("slickNext");
 		var questionIndex=_this.parents(".test-main-unit").index();
 		var progress=_this.parents(".test-main-segment").find(".test-content-progress");
-		progress.each(function(){
-			$(this).find(".current").html(questionIndex+1);
-		})
+		var startedSegment=parseInt($(this).parents(".test-main-segment").attr("data-slick-index"));
+		var currentSegment=startedSegment-1;
+		var playerID=Cookies.get("playerID");
+		var tourCorrectAnswers=$(this).parents(".test-main-unit").find(".test-content-progress-unit_correct").length;
+		console.log(tourCorrectAnswers);
+		if(_this.parents(".test-main-unit").is(_this.parents(".test-main-segment").find(".test-main-unit").last())){
+			_this.parents(".test-wrap").slick("slickNext");
+			Cookies.set('playerStartedTour',startedSegment);
+			var prevDescription;
+			
+			$.ajax(
+	          {
+	            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
+	            type: 'GET',
+	            contentType: false,
+	            async:false,
+	            headers: {
+	              "Authorization": "Basic " + btoa(api_key + ":x")
+	            },
+	            success: function(data, textStatus, jqXHR) {
+	            	prevDescription=data.description_text
+	            	
+	            },
+	            error: function(jqXHR, tranStatus) {
+	            	
+
+	            }
+	          }
+	        );
+	       	var newDescription=","+prevDescription+"|tour№"+currentSegment+":"+tourCorrectAnswers+"|";
+	       	
+			$.ajax(
+	          {
+	            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
+	            type: 'PUT',
+	          	contentType: "application/json",
+	          	async:false,
+	            //dataType: "json",
+	            //processData: false,
+	            data:JSON.stringify({description: newDescription}),
+	            headers: {
+	              "Authorization": "Basic " + btoa(api_key + ":x")
+	            },
+	            success: function(data, textStatus, jqXHR) {
+	         
+	            },
+	            error: function(jqXHR, tranStatus) {
+
+
+	            }
+	          }
+	    	);
+	    	fillSegment(startedSegment);
+	    	
+		} else{
+			_this.parents(".test-main-segment").slick("slickNext");
+			progress.each(function(){
+				$(this).find(".current").html(questionIndex+1);
+			})
+		}
+		
+		
 	})
+	$(".test-rating-table-numeration-unit").click(function(){
+		var index=$(this).index();
+		$(".test-rating-table-numeration-unit").removeClass("test-rating-table-numeration-unit_active");
+		$(".test-rating-table-numeration").each(function(){
+			$(this).find(".test-rating-table-numeration-unit").eq(index).addClass("test-rating-table-numeration-unit_active");
+		})
+		$(".test-rating-table-wrap").slick('slickGoTo', index ,false);
+	});
 	$(".register").click(function(){
 		var _this=$(this);
 		if(_this.parents(".main-games-unit").hasClass("main-games-unit_disabled")){
@@ -671,19 +889,21 @@ $(document).ready(function(){
 	 	$(".test-main-introUnit-container").each(function(){
 	 		var _this=$(this);
 	 		var image=_this.find('.test-main-introUnit-image');
-	 		$(".test-main-introUnit-navigation").after(image);
+	 		_this.find(".test-main-introUnit-navigation").after(image);
 	 	})
 	 }
 });
 $(window).on("load resize",function(){
 	 var windowWidth=$(window).outerWidth(true);
+	 
 	 if(windowWidth<768){
 	 	$(".test-main-introUnit-container").each(function(){
 	 		var _this=$(this);
 	 		var image=_this.find('.test-main-introUnit-image');
-	 		$(".test-main-introUnit-navigation").after(image);
+	 		_this.find(".test-main-introUnit-navigation").after(image);
 	 	})
 	 }
+	 
 	$('.slick-slider').slick('setPosition');
 })
 
