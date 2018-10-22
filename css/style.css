@@ -2408,6 +2408,7 @@ a {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
       .test-rating-best-unit {
+        background-color: #fff;
         width: calc(50% - 10px);
         margin-bottom: 20px;
         margin-right: 20px; }
@@ -2424,7 +2425,7 @@ a {
         .test-rating-best-unit_05 .test-rating-best-unit-header {
           background-color: #FFA95A; }
         .test-rating-best-unit-header {
-          padding: 20px 0 31px 0; }
+          padding: 20px 10px 31px 10px; }
           .test-rating-best-unit-header-image {
             width: 124px;
             margin: 0 auto;
@@ -2437,6 +2438,7 @@ a {
             line-height: 31px;
             font-family: "GraublauSlab-Heavy"; }
         .test-rating-best-unit-body {
+          position: relative;
           background-color: #fff;
           color: #043BFF;
           padding: 18px 53px 36px 37px; }
@@ -2452,6 +2454,11 @@ a {
             margin-bottom: 14px; }
             .test-rating-best-unit-body-unit:last-child {
               margin-bottom: 0; }
+            .test-rating-best-unit-body-unit:only-child {
+              display: block;
+              text-align: center; }
+            .test-rating-best-unit-body-unit:not(:only-child):first-child {
+              display: none; }
     .test-rating-title {
       padding-left: 24px;
       font-family: 'GraublauSlab-Heavy';
