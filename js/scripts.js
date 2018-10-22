@@ -5,8 +5,12 @@
 $(document).ready(function(){
 
 	// Your functions go here
-	Cookies.remove('playerID');
-	Cookies.remove("playerResults");
+	//Cookies.remove('playerID');
+	//Cookies.remove("playerResults");
+	//Cookies.remove("playerResults");
+	//Cookies.set("playerID",790);
+	//Cookies.set('playerStartedTour',6);
+	//Cookies.set("playerResults",['1','2','3','4','5']);
 	$(".main-select select").select2({
 	    placeholder: "Ваш город",
 	    minimumResultsForSearch: Infinity
@@ -269,6 +273,7 @@ $(document).ready(function(){
 							$(".popup_finish").removeClass("popup_active");
 						},1000);
 						$(".test-wrap").slick("slickNext");
+						
 		            },
 		            error: function(jqXHR, tranStatus) {
 
@@ -623,7 +628,7 @@ $(document).ready(function(){
 	$(".test-wrap").slick({
 		fade:true,
 		arrows:false,
-		initialSlide:1,
+		initialSlide:0,
 		infinite:false,
 		draggable:false,
         accessibility:false,
@@ -685,9 +690,6 @@ $(document).ready(function(){
 			element.playerID=value.id;
 			element.playerResults=parseDescriptionTextForPlayerResults(value.description_text);
 			element.playerNickname=parseDescriptionTextForPlayerNickname(value.description_text);
-			//console.log(index);
-			//console.log(value);
-			//console.log("..................");
 			array.push(element);
 		})
 		return array
@@ -731,8 +733,7 @@ $(document).ready(function(){
 	$(".test-main-body-images-controls-unit_next").click(function(){
 		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
 		imageWrapSlides.each(function(){
-			var notFirstSlide=$(this).hasClass("slick-active")&&$(this).css("left")!="0px";
-			if($(this).css("left")=="0px"||notFirstSlide){
+			if($(this).css("opacity")=="1"){
 				$(this).slick("slickNext");
 			}
 		})
@@ -741,7 +742,7 @@ $(document).ready(function(){
 		var imageWrapSlides=$(this).parents(".test-main-body-images").find(".test-main-body-images-wrap");
 		imageWrapSlides.each(function(){
 			var notFirstSlide=$(this).hasClass("slick-active")&&$(this).css("left")!="0px";
-			if($(this).css("left")=="0px"||notFirstSlide){
+			if($(this).css("opacity")=="1"){
 				$(this).slick("slickPrev");
 			}
 		})
@@ -784,7 +785,7 @@ $(document).ready(function(){
 			Cookies.set('playerStartedTour',startedSegment);
 			Cookies.set('playerResults',resultsArray);
 			var prevDescription;
-			
+
 			$.ajax(
 	          {
 	            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
@@ -795,7 +796,9 @@ $(document).ready(function(){
 	              "Authorization": "Basic " + btoa(api_key + ":x")
 	            },
 	            success: function(data, textStatus, jqXHR) {
-	            	prevDescription=data.description_text
+            		
+            		prevDescription=data.description_text
+            		postTourResult();
 	            	
 	            },
 	            error: function(jqXHR, tranStatus) {
@@ -804,29 +807,33 @@ $(document).ready(function(){
 	            }
 	          }
 	        );
-	       	var newDescription=+prevDescription+"|tour№"+currentSegment+":"+tourCorrectAnswers+"|";
-	       	
-			$.ajax(
-	          {
-	            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
-	            type: 'PUT',
-	          	contentType: "application/json",
-	          	async:false,
-	            //dataType: "json",
-	            //processData: false,
-	            data:JSON.stringify({description: newDescription}),
-	            headers: {
-	              "Authorization": "Basic " + btoa(api_key + ":x")
-	            },
-	            success: function(data, textStatus, jqXHR) {
-	         
-	            },
-	            error: function(jqXHR, tranStatus) {
+	        
+	        function postTourResult(){
+	        	var newDescription=prevDescription+"|tour№"+currentSegment+":"+tourCorrectAnswers+"|";
+				$.ajax(
+		          {
+		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
+		            type: 'PUT',
+		          	contentType: "application/json",
+		          	async:false,
+		            //dataType: "json",
+		            //processData: false,
+		            data:JSON.stringify({description: newDescription}),
+		            headers: {
+		              "Authorization": "Basic " + btoa(api_key + ":x")
+		            },
+		            success: function(data, textStatus, jqXHR) {
+		         
+		            },
+		            error: function(jqXHR, tranStatus) {
 
 
-	            }
-	          }
-	    	);
+		            }
+		          }
+		    	);
+		    }
+				    
+			
 	    	
 	    	if(startedSegment>5){
 	    		var prevTags;
@@ -849,7 +856,7 @@ $(document).ready(function(){
 		            }
 		          }
 		        );
-		        var newTags=prevTags.push("закончил онлайн игру");
+		        prevTags.push("закончил онлайн игру");
 		        $.ajax(
 		          {
 		            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets/"+playerID,
@@ -872,10 +879,12 @@ $(document).ready(function(){
 		          }
 		    	);
 		    	fillRatingTable(playerExists);
-	    	}
-	    	if(startedSegment<6){
+	    	} else{
 	    		fillSegment(startedSegment);
-	    	} 
+	    	}
+	    	
+	    	
+	    	
 	    	
 		} else{
 			_this.parents(".test-main-segment").slick("slickNext");
@@ -976,10 +985,11 @@ $(document).ready(function(){
 		}
 
 	})
-	var targetDate=new Date(2018, 7, 22, 20, 0, 0, 0);
+	var targetDate=new Date(2018, 9, 22, 10, 0, 0, 0);
 
 	var currentDate=new Date();
 	if(targetDate<=currentDate){
+		
 		$(".test-content-unit_result .test-content-unit-button").addClass("test-content-unit-button_shown");
 		$(".test-info-button").addClass("button_disabled");
 		$(".test-content-unit_result-timer").addClass("test-content-unit_result-timer_hidden");

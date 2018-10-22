@@ -980,6 +980,10 @@ a {
   border: none;
   border-radius: 0 !important; }
 
+.game-with-adress {
+  line-height: 15px;
+  font-size: 16px; }
+
 .main {
   background: url(../images/main-bg.svg);
   background-repeat: no-repeat;
@@ -2464,8 +2468,3 @@ a {
         width: 89.43px; }
       .test-rating-logo-wrap .header-logo_02 {
         width: 90.43px; }
-
-        .game-with-adress {
-            line-height: 15px;
-            font-size: 16px;
-        }
