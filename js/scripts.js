@@ -649,6 +649,8 @@ $(document).ready(function(){
 		finishedPlayersUrl=finishedPlayersUrl.concat('"');
 		/* check nickname for uniqueness*/
 		var finishedPlayersJson;
+		var totalPlayersFinished;
+		var firstIteration=true;
 		$.ajax(
           {
             url: finishedPlayersUrl,
@@ -660,8 +662,7 @@ $(document).ready(function(){
             },
             success: function(data, textStatus, jqXHR) {
             	
-            	finishedPlayersJson=data;
-            	
+            	totalPlayersFinished=data.total;
             },
             error: function(jqXHR, tranStatus) {
             	
@@ -669,6 +670,40 @@ $(document).ready(function(){
             }
           }
         );
+       
+        var pageNumber=1;
+        while(totalPlayersFinished>=0){
+        	if(pageNumber<=10){
+				$.ajax(
+		          {
+		            url: finishedPlayersUrl+'&page='+pageNumber,
+		            type: 'GET',
+		            contentType: false,
+		            async:false,
+		            headers: {
+		              "Authorization": "Basic " + btoa(api_key + ":x")
+		            },
+		            success: function(data, textStatus, jqXHR) {
+		            	if(firstIteration){
+		            		finishedPlayersJson=data;
+		            		
+		            	} else{
+
+		            		finishedPlayersJson.results=finishedPlayersJson.results.concat(data.results);
+		            	}
+		            	
+		            },
+		            error: function(jqXHR, tranStatus) {
+		            	
+
+		            }
+		          }
+		        );
+			}
+	        firstIteration=false;
+	        pageNumber++;
+			totalPlayersFinished=totalPlayersFinished-30;
+		}
 		var finishedPlayersArray=parseFinishedPlayersIntoArray(finishedPlayersJson);
 		
 		$.each(finishedPlayersArray,function(index,value){
@@ -679,7 +714,7 @@ $(document).ready(function(){
 
 		var tour1BestResults=[];
 		$.each(finishedPlayersArray,function(index,value){
-			if(value.playerResults[0]==7){
+			if(value.playerResults[0]==6){
 				tour1BestResults.push(value);
 			}
 			
@@ -1155,7 +1190,7 @@ $(document).ready(function(){
 		$(".test-content-progress-title").find(".current").html(questionNumber);
 		$(this).parents(".test-content").slick("slickNext");
 		if($(this).parents(".test-content-unit").hasClass("test-content-unit_final")){
-			$(".test-content-progress-title").html("Ваш результат "+correctAnswers+"/6");
+			$(this).parents(".test-content").find(".test-content-progress-title").html("Ваш результат "+correctAnswers+"/6");
 			//$(".test-content-progress").addClass("test-content-progress_final")
 			$(".test-content").addClass("test-content_final");
 		}
