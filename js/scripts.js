@@ -617,7 +617,7 @@ $(document).ready(function(){
 	$(".test-wrap").slick({
 		fade:true,
 		arrows:false,
-		initialSlide:7,
+		initialSlide:0,
 		infinite:false,
 		draggable:false,
         accessibility:false,
