@@ -234,6 +234,9 @@ $red:#E8244C;
 				&:nth-child(2n){
 					margin-right: 0;
 				}
+				&:nth-child(3n){
+					margin-right: 40px;
+				}
 
 			}
 		}
@@ -572,14 +575,17 @@ $red:#E8244C;
 				justify-content:center;
 			}
 			&-unit{
+				padding:10px 20px 30px 20px;
 				margin-bottom: 57px;
-				height:270px;
-				margin-right: 0;
+				min-height:270px;
+				height:auto;
+				margin-right: 0!important;
 				&-date{
 					line-height: 140px;
 					font-size: 150px;
 				    margin-bottom: 34px;
 				}
+
 			}
 			&-month{
 				margin-bottom: 13px;
@@ -673,6 +679,35 @@ $red:#E8244C;
 				&-wrap{
 					max-width: 100%;
 					padding:0 10px;
+				}
+			}
+		}
+		&_list{
+			.popup-wrap{
+				padding:50px 10px;
+			}
+			&-header{
+				padding:0 10px;
+				&-controls{
+					&-join{
+						margin:0 auto;
+						width:100%;
+						max-width: 300px;
+						margin-top: 50px;
+
+					}
+				}
+			}
+			&-table{
+				padding:0 10px;
+				tr{
+					td{
+						line-height: 28px;
+						font-size: 18px;
+						&.popup-list-table-subtitle{
+							    padding-top: 25px;
+						}
+					}
 				}
 			}
 		}

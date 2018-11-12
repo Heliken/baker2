@@ -161,6 +161,8 @@
       margin-right: 40px; }
       .main-games-unit:nth-child(2n) {
         margin-right: 0; }
+      .main-games-unit:nth-child(3n) {
+        margin-right: 40px; }
   .test-header {
     padding: 0px 40px;
     padding-top: 32px; }
@@ -390,9 +392,11 @@
       -ms-flex-pack: center;
       justify-content: center; }
     .main-games-unit {
+      padding: 10px 20px 30px 20px;
       margin-bottom: 57px;
-      height: 270px;
-      margin-right: 0; }
+      min-height: 270px;
+      height: auto;
+      margin-right: 0 !important; }
       .main-games-unit-date {
         line-height: 140px;
         font-size: 150px;
@@ -457,6 +461,22 @@
   .popup_rules .popup-wrap {
     max-width: 100%;
     padding: 0 10px; }
+  .popup_list .popup-wrap {
+    padding: 50px 10px; }
+  .popup_list-header {
+    padding: 0 10px; }
+    .popup_list-header-controls-join {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 50px; }
+  .popup_list-table {
+    padding: 0 10px; }
+    .popup_list-table tr td {
+      line-height: 28px;
+      font-size: 18px; }
+      .popup_list-table tr td.popup-list-table-subtitle {
+        padding-top: 25px; }
   .test-wrap {
     background-image: url(../images/test-bg-mobile.svg); }
   .test-header {

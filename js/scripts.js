@@ -821,6 +821,10 @@ $(document).ready(function(){
 		$(".test-rating-table-numeration").each(function(){
 			$(this).find(".test-rating-table-numeration-unit").eq(0).addClass("test-rating-table-numeration-unit_active");
 		})
+		$('.test-rating-table-wrap').on('afterChange', function(event, slick, currentSlide){
+			$('.test-wrap').slick("setPosition");
+		})
+
 		$('.test-rating-table-wrap').slick({
 			fade:true,
 			arrows:false,
@@ -1248,6 +1252,9 @@ $(document).ready(function(){
 	 		_this.find(".test-main-introUnit-navigation").after(image);
 	 	})
 	 }
+	$('.main-games-unit-list').click(function(){
+		$(".popup.popup_list").addClass("popup_active");
+	})
 });
 $(window).on("load resize",function(){
 	 var windowWidth=$(window).outerWidth(true);
@@ -1258,6 +1265,9 @@ $(window).on("load resize",function(){
 	 		var image=_this.find('.test-main-introUnit-image');
 	 		_this.find(".test-main-introUnit-navigation").after(image);
 	 	})
+	 	
+	 } else{
+
 	 }
 	 
 	$('.slick-slider').slick('setPosition');
